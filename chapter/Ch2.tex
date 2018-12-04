@@ -1,0 +1,389 @@
+\section{朴素集合论}
+\subsection{集合的概念与基本例子}
+\begin{definition}
+集合的概念不可言说，不言自明，无须定义。谓词$\in$（读作“属于”）也不可言说。两个集合的相等，也无需定义。
+\end{definition}
+粗俗地说，“几乎所有你能想到的”的事物、对象，都是集合。
+而两个集合相等，通俗地说就是它们是同一个事物。
+对于两个集合$A,B$，我们可以构造出命题$A\in B$.当$A\in B$为真命题时，我们称
+$A$是$B$的元素。
+
+为避免集合论悖论，我们简单粗暴地避开谈论$A\in A$这个命题。我们不认为一个集合是它自身的元素。
+例如，所有集合构成的全体，我们不认为是集合。事实上，并不是随便一些东西放在一起都构成一个集合。
+哪些东西放在一起构成集合，哪些不认为是集合，是被集合论公理体系规定的，本讲义不打算深究。
+本章最末会对集合论公理做简单介绍。\vs
+
+由所有满足性质$P$的对象$x$的全体构成的集合，记作
+$$\{x|P(x)\}$$
+
+当然，对于某些集合，我们也可以通过列举其中的元素来表示这个集合，例如由$1,2,3$
+这三个元素构成的集合可以记为$\{1,2,3\}$.
+
+关于集合相等，首先有一条基本的公理：\vs
+
+\textbf{外延公理}：\emph{对于两集合$A,B$，$A$与$B$相等当且仅当它们拥有相同的元素}。
+
+用符号语言表达为：对于任何集合$A,B$,
+$$(A=B)\Leftrightarrow[\forall x,(x\in A)\Leftrightarrow(x\in B)]$$
+
+\begin{example}[常见的集合及其记号]
+$$\mathbb{Z}:=\{...,-1,0,1,2,3...\}$$
+$$\mathbb{Z_+}:=\{x\in\mathbb{Z}|x>0\}$$
+$$\mathbb{Q}:=\{\frac{m}{n}|m,n\in\mathbb{Z},n\neq0\}$$
+分别是我们熟悉的整数集、正整数集、有理数集。
+\end{example}
+我们用$\mathbb{R}$来表示实数集，
+$$\mathbb{C}:=\{a+b\sqrt{-1}|a,b\in\mathbb{R}\}$$
+为复数集。
+
+\begin{example}对于正整数$n$,我们也习惯记
+$$n\mathbb{Z}:=\{nk|k\in\mathbb{Z}\}$$
+即，由$n$的倍数构成的集合。
+\end{example}
+
+我们也习惯用
+$$\frac{1}{2}\mathbb{Z}:=\{\frac{n}{2}|n\in\mathbb{Z}\}$$
+来表示半整数集。读者可举一反三。
+
+在此假定读者以上集合有基本了解。
+
+\begin{definition}[空集]
+定义集合$\varnothing$为
+$$\varnothing:=\{x|x\neq x\}$$
+称此集合为空集。
+\end{definition}
+由此可见，空集就是不含任何元素的集合。
+
+\begin{example}
+考虑集合$\{\varnothing\}$，注意这是由“空集”这个元素构成的集合，它并不是空集。并且有
+$$\varnothing\in\{\varnothing\}$$
+\end{example}
+
+事实上，对任何集合$A$,我们都可以考虑由$A$这一个元素构成的集合$\{A\}$，成立$A\in\{A\}$.
+
+\begin{definition}[子集]
+对于集合$A,B$，称$A$是$B$的子集，若
+$$\forall x\in A, x\in B.$$
+此时记作$A\subseteq B$，读作“$A$包含于$B$”，或者“$B$包含$A$”.
+\end{definition}
+也就是说，“$A$中的所有元素都在$B$中”。可见，对任何集合$A$，都成立$A\subseteq A$.
+
+回顾上一节讲到的逻辑连接词“蕴含”，
+$A\subseteq B$的定义也可以写作
+$$\forall x, (x\in A)\Rightarrow(x\in B)$$
+
+\begin{prop}
+对于任何集合$A$，都有$\varnothing\subseteq A$.也就是说，空集是任何集合的子集。
+\end{prop}
+\begin{proof}
+对于任何集合$x$，按照子集的定义，我们需要证明
+$$(x\in\varnothing)\Rightarrow(x\in A)$$
+而由空集的定义，对于任何的$x$,$x\in\varnothing$总是假命题，从而
+$(x\in\varnothing)\Rightarrow(x\in A)$一定是真命题。得证。
+\end{proof}
+这个例子可帮助初学者来理解逻辑连接词“$\Rightarrow$”的含义。
+
+\begin{example}
+$$\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$$
+$$\varnothing\subseteq\{\varnothing\}$$
+\end{example}
+
+\begin{prop}[集合相等的一个充要条件]
+对于集合$A,B$，则$A=B$当且仅当
+$$(A\subseteq B)\wedge(B\subseteq A)$$
+\end{prop}
+\begin{proof}
+这是外延公理的一个近乎无聊的应用。读者自行补全细节。
+\end{proof}
+
+\begin{definition}[真子集]
+对于集合$A,B$，称$A$是$B$的真子集，如果
+$$A\subseteq B\text{且}A\neq B$$
+此时记作$A\subsetneqq B$，也读作“$A$真包含于$B$”.
+\end{definition}
+
+\begin{example}[开区间与闭区间]
+再回顾以下我们早已熟悉的实数集$\mathbb{R}$的子集：对于实数$a<b$，有
+$$(a,b):=\{x\in\mathbb{R}|a<x<b\}$$
+$$(a,b]:=\{x\in\mathbb{R}|a<x\leq b\}$$
+$$[a,b):=\{x\in\mathbb{R}|a\leq x<b\}$$
+$$[a,b]:=\{x\in\mathbb{R}|a\leq x\leq b\}$$
+$$(a,+\infty):=\{x\in\mathbb{R}|x>a\}$$
+$$[a,+\infty):=\{x\in\mathbb{R}|x\geq a\}$$
+$$(-\infty,a):=\{x\in\mathbb{R}|x<a\}$$
+$$(-\infty,a]:=\{x\in\mathbb{R}|x\leq a\}$$
+\end{example}
+
+\begin{definition}[有限集与无限集]
+对于集合$A$，如果$A$中只有有限多个元素，则称$A$为有限集。反之称为无限集。
+\end{definition}
+这个概念是直接易懂的。常见的许多集合，
+诸如$\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$等等，都是无限集。
+
+比较显然的一点是，对于集合$A$，$A$是无限集当且仅当对任何正整数$n$，
+存在$A$的一个含有$n$个元素的子集。
+
+\subsection{集合的基本运算}
+
+本节介绍集合的运算，如何由我们已有的集合来构造新的集合。
+\begin{definition}[集合的交、并]
+对于集合$A,B$，我们定义
+$$A\cap B:=\{x|(x\in A)\wedge(x\in B)\}$$
+$$A\cup B:=\{x|(x\in A)\vee(x\in B)\}$$
+分别成为集合$A,B$的交集与并集。
+\end{definition}
+
+\begin{definition}[补集]
+给定集合$X$，对于$X$的子集$A$，定义$A$在$X$中的补集
+$A^c:=\{x\in X|x\not\in A\}$
+\end{definition}
+在谈论补集时，我们总是事先给定集合$X$.
+
+\begin{definition}[差集]
+对于集合$A,B$,定义
+$$A-B:=\{x\in A|x\not\in B\}$$
+\end{definition}
+
+\begin{prop}[交、并的分配律]\label{set-fenpeilv}
+对于任意集合$A,B$,成立
+$$(A\cup B)\cap C=(A\cap C)\cup(B\cap C)$$
+$$(A\cap B)\cup C=(A\cup C)\cap(B\cup C)$$
+\end{prop}
+\begin{proof}
+留作习题。
+\end{proof}
+
+\begin{prop}[摩根律]\label{set-morgen}
+设集合$A,B$均为集合$X$的子集，我们在$X$中谈论补集。则成立
+$$(A\cap B)^c=A^c\cup B^c$$
+$$(A\cup B)^c=A^c\cap B^c$$
+\end{prop}
+\begin{proof}
+留作习题。
+\end{proof}
+
+\begin{definition}[幂集]
+对于集合$A$，定义集合
+$$2^A:=\{B|B\subseteq A\}$$
+称其为集合$A$的幂集。
+\end{definition}
+也就是说，$2^A$被定义为由$A$的全体子集构成的集合。
+
+\begin{example}对于集合$A=\{1,2,3\}$,$B=\varnothing$，则成立
+$$2^A=\{\varnothing,\{1\},\{2\},\{3\},
+\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$$
+$$2^B=\{\varnothing\}$$
+$$2^{2^B}=\{\varnothing,\{\varnothing\}\}$$
+\end{example}
+
+\begin{definition}[有序对]
+对于集合$A,B$，定义集合$(A,B)$为
+$$(A,B):=\{\{A\},\{A,B\}\}$$
+\end{definition}
+可见无论$A,B$是什么样的集合，当$A\neq B$时，集合$(A,B)$总是由两个元素构成：
+$$\{A\}\in(A,B)$$
+$$\{A,B\}\in(A,B)$$
+再注意，$\{A,B\}$表示的是“以$A$,$B$这两个元素构成的集合”。
+
+特别地，$(A,A)=\{\{A\},\{A,A\}\}=\{\{A\},\{A\}\}=\{\{A\}\}$.
+
+细心的读者可能会发现符号歧义。对于实数$a<b$，
+$(a,b)$可以是开区间$\{x\in\mathbb{R}|a<x<b\}$，
+也可以是这里讲的有序对。读者遇到此情况，不妨靠语境来判断它的含义。
+
+
+\begin{definition}[笛卡尔积]
+对于非空集合$A,B$，我们定义
+$$A\times B:=\{(a,b)|a\in A, b\in B\}$$
+\end{definition}
+这里的$(a,b)=\{\{a\},\{a,b\}\}$是有序对。
+
+\begin{example}对于$A=\{1,2,3\}$,$B=\{4,5\}$，则有
+$$A\times B=\{(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)\}$$
+\end{example}
+
+\begin{example}[$n$维空间]
+回顾$\mathbb{R}$是实数集（直线），则有
+$$\mathbb{R}^2:=\mathbb{R}\times\mathbb{R}
+=\{(x,y)|x,y\in\mathbb{R}\}$$
+一般地，对于正整数$n$，定义
+$$\mathbb{R}^n:=\mathbb{R}\times...\times\mathbb{R}
+=\{(x_1,x_2,...,x_n)|x_i\in\mathbb{R},\forall 1\leq i\leq n\}$$
+\end{example}
+注意，谈论到多个集合作笛卡尔积时，比如对于$A,B,C$三个集合，原则上应该有
+
+$$(A\times B)\times C=\{((a,b),c)|a\in A,b\in B, c\in C\}$$
+$$A\times (B\times C)=\{(a,(b,c))|a\in A,b\in B, c\in C\}$$
+
+讲道理（严格按照有序对的定义），$((a,b),c)$与$(a,(b,c))$通常是不相同的。
+本讲义中尽量避免如此繁琐的讨论，暂且认为
+
+$$A\times B\times C:=\{(a,b,c)|a\in A,b\in B, c\in C\}$$
+
+读者可以尝试给“多元有序组”下定义，或者暂且忍受，直到学到集合的映射。\vs
+
+本节最后，简单介绍一下本讲义开篇“圣经”中提到的“后继树（数）”。
+\begin{definition}[后继]
+对于集合$A$，定义集合
+$$A^+:=A\cup\{A\}$$
+称为集合$A$的后继。
+\end{definition}
+
+例如，对于集合$A=\{a,b\}$，则有
+$$A^+=\{a,b\}\cup\{\{a,b\}\}=\{a,b,\{a,b\}\}$$
+
+正如“圣经”中所说，通过不断取后继，可以得到所有的正整数。
+具体地，我们将“$0$”定义为空集$\varnothing$，即$0:=\varnothing$.
+之后我们令$1:=0^+=\varnothing\cup\{\varnothing\}=\{\varnothing\}=\{0\}$.
+再之后，我们将$2$定义为$1$的后继，即
+$$2:=1^+=1\cup\{1\}=\{0\}\cup\{1\}=\{0,1\}$$
+不断地做下去，有
+$$3:=2^+=2\cup\{2\}=\{0,1\}\cup\{2\}=\{0,1,2\}$$
+$$4:=3^+=3\cup\{3\}=\{0,1,2\}\cup\{3\}=\{0,1,2,3\}$$
+$$......$$
+这正是皮亚诺的自然数公理化构造。
+在此观点下，0和正整数统称为自然数。
+
+我们不再继续深究自然数公理。
+
+\subsection{集合列与集合族（待补）}
+本节我们继续介绍集合运算。
+\begin{definition}[集合族]
+对于集合$\mathcal{A}$，如果$\mathcal{A}$是由一些集合构成的集合，则称$\mathcal{A}$是一个集合族。
+\end{definition}
+由定义可知，集合族首先是一个集合，只不过这个集合是由一些集合构成的。
+例如，集合$\{\varnothing\}$就是一个集合族。对任何集合$A$，$A$的幂集$2^A$也是一个集合族。
+
+其实，“集合族”是一个很无聊的概念，因为任何集合事实上都是集合族，
+集合与集合族是一回事。对于这个论断，读者可以承认之，也可以无视之。
+
+\begin{definition}[任意交与任意并]
+对于非空的集合族$\mathcal{A}$，我们定义新的集合
+$$\bigcap \mathcal{A}:=\{x|\forall A\in \mathcal{A},x\in A\}$$
+$$\bigcup \mathcal{A}:=\{x|\exists A\in \mathcal{A},x\in A\}$$
+分别称为集合族$\mathcal{A}$的交、并。
+\end{definition}
+例如，对于$\mathcal{A}=\{\{a,b\},\{b,c\}\}$，则有
+$$\bigcap \mathcal{A}=\{a,b\}\cap\{b,c\}=\{b\}$$
+$$\bigcup \mathcal{A}=\{a,b\}\cup\{b,c\}=\{a,b,c\}$$
+我们更感兴趣的是当$\mathcal{A}$时无限集的时候，此时就会出现无穷多个集合的交（并）。\vs
+
+对于集合族$\mathcal{A}$，我们将$\mathcal{A}$中的每个元素赋以不同的标记来区分：
+$$\mathcal{A}=\{A_i|i\in\mathcal{I}\}$$
+其中，$\mathcal{I}$称为集合族$\mathcal{A}$的一个\textbf{指标集}，它可以是有限集，也可以是无限集。
+
+此时，我们习惯使用记号
+$$\bigcap_{i\in\mathcal{I}}A_i\,\,\,\,\,\,\,\,\bigcup_{i\in\mathcal{I}}A_i$$
+分别来表示集合族$\mathcal{A}$的交、并。
+
+特别地，当集合族$\mathcal{A}$的指标集$\mathcal{I}=\mathbb{Z_+}$为正整数集时，即
+$$\mathcal{A}=\{A_i|i\in\mathbb{Z}_+\}=\{A_1,A_2,A_3,...\}$$
+我们更喜欢将集合族$\mathcal{A}$的交、并记作
+$$\bigcap_{i=1}^{\infty}A_i:=\bigcap\mathcal{A}$$
+$$\bigcup_{i=1}^{\infty}A_i:=\bigcup\mathcal{A}$$
+
+\begin{example}
+对于每一个正整数$n$，令集合$A_n:=(-n,n)\subseteq\mathbb{R}$为开区间。则成立
+$$\bigcap_{n=1}^\infty A_n=(-1,1)$$
+$$\bigcup_{n=1}^\infty A_n=\mathbb{R}$$
+\end{example}
+\begin{proof}
+（待补）
+\end{proof}
+
+\subsection{映射与函数（待补）}
+\subsection{集合的势（待补）}
+\subsection{可数集（待补）}
+\subsection{选择公理与集合论ZFC公理体系简介（待补）}
+\subsection{习题A：逻辑、集合运算}
+
+\begin{prob}验证性质\ref{set-fenpeilv}与性质\ref{set-morgen}.
+\end{prob}\vs
+
+\begin{prob}对于集合$A,B$，证明以下三个命题是互相等价的：
+
+(1)$A\subseteq B$
+
+(2)$A\cap B=A$
+
+(3)$A\cup B=B$.
+\end{prob}
+\vs
+
+\begin{prob}对于集合$A,B,C$，证明：
+
+(1) $(A\subseteq C)\wedge(B\subseteq C)\Leftrightarrow A\cup B\subseteq C$
+
+(2) $(C\subseteq A)\wedge(C\subseteq C)\Leftrightarrow C\subseteq A\cap B$
+\end{prob}\vs
+
+\begin{prob}[元素的个数]
+设集合$A$为有限集（即，只含有有限多个元素），我们用$|A|$来表示集合$A$中元素的个数。
+例如当$A=\{2,7,8\}$时,有$|A|=3$.现在，假设$A,B$都是有限集，证明以下结论：
+
+(1)$|2^A|=2^{|A|}$
+
+(2)$|A\times B|=|A|\times|B|$
+
+(3)$|A\cup B|=|A|+|B|-|A\cap B|$
+\end{prob}\vs
+
+
+\begin{prob}对于实数$a,b$，证明以下命题：
+
+(1) $(a\geq b)\Leftrightarrow(\forall\varepsilon>0,a>b-\varepsilon)$
+
+(2) $(a=b)\Leftrightarrow(\forall\varepsilon>0,|a-b|<\varepsilon)$
+
+(3) $(a>b)\Leftrightarrow(\exists\varepsilon>0,a>b+\varepsilon)$
+
+\end{prob}
+
+(Hint:这里默认$\varepsilon$取值于实数$\mathbb{R}$.)\vs
+
+\begin{prob}对于非空集合$X,Y,X',Y'$，证明：
+
+(1) $X\times Y\subseteq X'\times Y' \Leftrightarrow (X\subseteq X')\wedge(Y\subseteq Y')$
+
+(2) $(X\times Y)\cup(X'\times Y)=(X\cup X')\times Y$
+
+(3) $X\times Y\cap X'\times Y'=(X\cap X')\times(Y\cap Y')$
+\end{prob}\vs
+
+\begin{prob} 对于集合$A,B$,
+
+(1)证明： $(A\subseteq B)\Leftrightarrow (2^A\subseteq 2^B)$
+
+(2)当$A,B$非空时，是否一定成立$2^{A\times B}=2^A\times2^B$？
+
+(2)直接写出集合$2^{\{\varnothing,\{\varnothing\}\}}$的所有元素。
+
+\end{prob}\vs
+
+\begin{prob}对于集合$A,B$,
+
+(1)何时成立$\{A\cup B\}=\{A\}\cup\{B\}$？
+
+(2)何时成立$(A,B)=(B,A)$？
+\end{prob}\vs
+
+\begin{prob}[集合的对称差]
+
+对于两个集合$A,B$定义一种新的集合运算$\triangle$，称为对称差，如下：
+$$A\triangle B:=(A-B)\cup(B-A)$$
+证明对称差运算满足以下性质：
+
+(1) $(A\triangle B)\triangle C=A\triangle(B\triangle C)$
+
+(2) $(A\triangle B)\triangle (B\triangle C)=A\triangle C$
+
+(3) $A\triangle B=C\Leftrightarrow A=B\triangle C$
+\end{prob}
+
+
+
+\section{二元关系（待补）}
+\subsection{关系的运算与性质（待补）}
+\subsection{等价关系与等价类（待补）}
+\subsection{偏序关系（待补）}
+\subsection{Zorn引理与良序原理（待补）}
