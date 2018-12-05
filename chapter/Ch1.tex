@@ -230,7 +230,7 @@ $(p\vee q)\leftrightarrow (r\wedge s)$，而不是$((p\vee q)\leftrightarrow r)\
 在以后，我们尽量避免依靠这个优先级约定规则，而是尽可能多加括号减少歧义。
 
 
-\subsection{命题逻辑等值演算（待补）}
+\subsection{命题逻辑等值演算}
 在初等数学中我们用字母（比如$x$）表示实数。
 在一些语境下，$x$是一个确定的数，
 而在有些语境下字母$x$代表的数不确定——
@@ -254,12 +254,14 @@ $x^2+1$是一个公式，我们给$x$赋以特定的值，就会得到$x^2+1$的
 由符号$p$自身构成的符号串是命题公式。
 
 （2）如果符号串$A,B$都是命题公式，那么符号串
-$$(\neg A)$$
-$$(A\vee B)$$
-$$(A\wedge B)$$
-$$(A\rightarrow B)$$
-$$(A\leftrightarrow B)$$
+$$\neg A$$
+$$A\vee B$$
+$$A\wedge B$$
+$$A\rightarrow B$$
+$$A\leftrightarrow B$$
 都是命题公式。
+
+（3）对于符号串$A$是命题公式，那么符号串“$(A)$”也是命题公式。
 \end{definition}
 
 注意“命题公式”这个概念是\textbf{归纳定义}
