@@ -614,6 +614,7 @@ $$p\leftrightarrow q\Leftrightarrow
 (p\wedge q)\vee(\neg p\wedge\neg q)$$\label{dengjialv-ii}
 \end{example}
 \begin{proof}
+除了使用真值表，还可以等值演算。
 只需注意到
 $$\begin{tabular}{cll}
 &$p\leftrightarrow q$&\\
@@ -696,8 +697,57 @@ $1\wedge1$
 
 $\Leftrightarrow$&$1$&\text{（连接词$\wedge$的定义）}\\
 \end{tabular}$$
-从而原命题公式与真命题$1$是等值的，说明原命题公式是重言式。
+从而原命题公式与真命题$1$是等值的，说明原命题公式是重言式\vs
+
+方法三：暴力地去“分析句子成分”，这比前两种方法“文明”一点。
+判断一个命题公式是否为重言式，根据重言式的定义，
+只需要知道是否存在它的某个赋值，使得赋值后的结果为假。
+
+假设存在$p,q,r$的某个赋值，使得
+$$[p\leftrightarrow(\neg q\vee r)]\rightarrow
+[\neg p\rightarrow q]$$
+为假命题，那么注意连接两组中括号的$\rightarrow$
+（将这个命题看成一个形如$A\rightarrow B$的复合命题，其中
+$A,B$为中括号里面的东西），由连接词$\rightarrow$的定义，
+知$\left\{\begin{tabular}{lc}
+$p\leftrightarrow(\neg q\vee r)$&\text{是真命题}\\
+$\neg p\rightarrow q$&\text{是假命题}\\
+\end{tabular}\right.$.
+从而由$\neg p\rightarrow q$为假命题，得知$p,q$都为假命题。
+又因为$p\leftrightarrow(\neg q\vee r)$是真命题，且$p$为假命题，
+从而$\neg q\vee r$为假，从而$q$必为真。但是之前已经说明$q$为假命题了，
+从而得到矛盾。这个矛盾说明不存在$p,q,r$的赋值使得原命题公式为假，
+从而原命题公式为重言式。
 \end{proof}
+
+本例还会有方法四：下一节将介绍的命题逻辑的推理方法。\vs
+
+最后，关于蕴含连接词$\rightarrow$，
+它常被俗称“推出”，这是有道理的：
+
+\begin{example}[假言三段论]
+对于命题变量$p,q$，下述命题公式为重言式：
+$$[(p\rightarrow q)\wedge p]\rightarrow q$$
+\end{example}
+\begin{proof}
+仍然可以使用上个例子中的三种方法。
+其中，等值演算过程如下（读者自行补全每一步所用的运算律）：
+$$\begin{tabular}{cl}
+&$[(p\rightarrow q)\wedge p]\rightarrow q$\\
+$\Leftrightarrow$&$\neg[(\neg p\vee q)\wedge p]\vee q$\\
+$\Leftrightarrow$&$[(p\wedge \neg q)\vee\neg p]\vee q$\\
+$\Leftrightarrow$&$[(p\vee\neg p)\wedge(\neg q\vee\neg p)]\vee q$\\
+$\Leftrightarrow$&$(\neg q\vee\neg p)\vee q$\\
+$\Leftrightarrow$&$(\neg q\vee q)\neg p$\\
+$\Leftrightarrow$&$1\vee\neg p$\\
+$\Leftrightarrow$&$1$\\
+\end{tabular}$$
+从而原式为重言式。
+\end{proof}
+
+这个重言式，用自然语言表述为，
+“如果$p$能推出$q$，并且$p$成立，那么$q$成立”。
+这正是逻辑学中最典型的“三段论”，早在亚里士多德时期就被提出。
 
 \subsection{推理与证明（待补）}
 \subsection{主体与谓词逻辑（待补）}
