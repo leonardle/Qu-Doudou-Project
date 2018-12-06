@@ -593,12 +593,13 @@ $\neg A$ &\text{（吸收律）}\\
 
 接下来我们举一些等值演算的例子，来结束本节。
 
-\begin{example}
+\begin{example}[附加前提]
 我们重新来看例子\ref{proposition formula}之中出现的
 关于$3$个命题变量$p,q,r$的命题公式。我们已经用真值表的方法知道了
 $$p\rightarrow (q\rightarrow r)\Leftrightarrow
 (p\wedge q)\rightarrow r$$
 现在，用等值演算的方法再次得到此等值式。
+\label{fujia-qianti}
 \end{example}
 \begin{proof}[Solution]
 运用我们所介绍的基本的运算律，容易知道
@@ -612,6 +613,9 @@ $\Leftrightarrow$& $(p\wedge q)\rightarrow r$ & \text{(蕴含律)}\\
 \end{tabular}$$
 从而得证，比暴力计算真值表要方便。
 \end{proof}
+
+这个重言式也被称作“附加前提”，
+它在逻辑推理中具有重要地位。
 
 建议初学者学习等值演算时，像本节一样，每一步演算都标注上所使用的运算律。
 等到熟练时，就不必在每一步的右边添加括号备注了。
@@ -728,36 +732,172 @@ $\neg p\rightarrow q$&\text{是假命题}\\
 从而原命题公式为重言式。
 \end{proof}
 
-本例还会有方法四：下一节将介绍的命题逻辑的推理方法。\vs
+本例还会有方法四：下一节将介绍的命题逻辑的推理方法。
 
-最后，关于蕴含连接词$\rightarrow$，
-它常被俗称“推出”，这是有道理的：
 
-\begin{example}[假言三段论]
-对于命题变量$p,q$，下述命题公式为重言式：
-$$[(p\rightarrow q)\wedge p]\rightarrow q$$
-\end{example}
+\subsection{推理与证明（正在更新）}
+
+本节其实还是对命题公式进行等值演算。
+
+\begin{definition}[逻辑蕴含]
+对于总共含有$n(\geq 0)$个命题变量$p_1,...,p_n$的命题公式$A,B$，
+如果对于$p_1,...,p_n$的任何赋值，
+以下两者至少有一个成立：
+
+\begin{tabular}{l}
+(1)$A$为假命题\\
+(2)$A$与$B$都为真命题
+\end{tabular}
+，则称$A$\textbf{逻辑蕴含}$B$，
+记作$A\Rightarrow B$.
+\end{definition}
+
+记号“$\Rightarrow$”与上一节出现的表示两个命题公式等值的
+“$\Leftrightarrow$”十分类似。
+由“逻辑蕴含”的定义，容易知道：
+
+\begin{lemma}对于命题公式$A,B$，则$A\Rightarrow B$当且仅当
+$A\rightarrow B$是重言式。
+\end{lemma}
+
 \begin{proof}
-仍然可以使用上个例子中的三种方法。
-其中，等值演算过程如下（读者自行补全每一步所用的运算律）：
-$$\begin{tabular}{cl}
-&$[(p\rightarrow q)\wedge p]\rightarrow q$\\
-$\Leftrightarrow$&$\neg[(\neg p\vee q)\wedge p]\vee q$\\
-$\Leftrightarrow$&$[(p\wedge \neg q)\vee\neg p]\vee q$\\
-$\Leftrightarrow$&$[(p\vee\neg p)\wedge(\neg q\vee\neg p)]\vee q$\\
-$\Leftrightarrow$&$(\neg q\vee\neg p)\vee q$\\
-$\Leftrightarrow$&$(\neg q\vee q)\neg p$\\
-$\Leftrightarrow$&$1\vee\neg p$\\
-$\Leftrightarrow$&$1$\\
-\end{tabular}$$
-从而原式为重言式。
+由有关定义，显然的。
 \end{proof}
 
-这个重言式，用自然语言表述为，
-“如果$p$能推出$q$，并且$p$成立，那么$q$成立”。
-这正是逻辑学中最典型的“三段论”，早在亚里士多德时期就被提出。
+\begin{lemma}
+对于命题公式$A,B$，如果成立$A\Rightarrow B$并且$A$是重言式，
+那么$B$也是重言式。\label{luoji-yunhan-lemma}
+\end{lemma}
 
-\subsection{推理与证明（待补）}
+\begin{proof}
+给定$A,B$的任何一个赋值，我们只需证明$B$为真。
+由于$A$是重言式，所以该赋值下$A$为真。又因为$A\Rightarrow B$，
+从而由逻辑蕴含的定义可以看出，$B$必为真。得证。
+\end{proof}
+
+\begin{thm}[假言推理]\label{jiayan-tuili}
+对于任意命题公式$A,B$，成立
+$$[(A\rightarrow B)\wedge A]\Rightarrow B$$
+\end{thm}
+
+\begin{proof}
+也就是说，我们要证明
+$$[(A\rightarrow B)\wedge A]\rightarrow B$$
+为重言式。
+
+在此采用上节介绍的等值演算方法，
+过程如下（读者自行补全每一步所用的运算律）：
+$$\begin{tabular}{cl}
+&$[(A\rightarrow B)\wedge A]\rightarrow B$\\
+$\Leftrightarrow$&$\neg[(\neg A\vee B)\wedge A]\vee B$\\
+$\Leftrightarrow$&$[(A\wedge \neg B)\vee\neg A]\vee B$\\
+$\Leftrightarrow$&$[(A\vee\neg A)\wedge(\neg B\vee\neg A)]\vee B$\\
+$\Leftrightarrow$&$(\neg B\vee\neg A)\vee B$\\
+$\Leftrightarrow$&$(\neg B\vee B)\neg A$\\
+$\Leftrightarrow$&$1\vee\neg A$\\
+$\Leftrightarrow$&$1$\\
+\end{tabular}$$
+从而证毕。
+\end{proof}
+
+这个逻辑蕴含式，用自然语言表述为，
+“如果$A$能推出$B$，并且$A$成立，那么$B$成立”。
+这正是逻辑学中典型的“假言推理”，
+早在亚里士多德时期就被提出。
+
+\begin{thm}[假言三段论]
+
+对于命题公式$P,Q,R$，则成立下述逻辑蕴含式：
+$$[(P\rightarrow Q)\wedge(Q\rightarrow R)]
+\Rightarrow(P\rightarrow R)$$
+\end{thm}
+
+\begin{proof}
+只需证明
+$$[(P\rightarrow Q)\wedge(Q\rightarrow R)]
+\rightarrow(P\rightarrow R)$$
+是重言式。
+
+我们用等值演算的方法。注意到
+$$\begin{tabular}{cll}
+&$[(P\rightarrow Q)\wedge(Q\rightarrow R)]
+\rightarrow(P\rightarrow R)$&\\
+
+$\Leftrightarrow$&
+$[(P\rightarrow Q)\wedge(Q\rightarrow R)\wedge P]\rightarrow R$
+&\text{（附加前提，见例子\ref{fujia-qianti}）}\\
+
+$\Leftrightarrow$&
+$[(P\wedge(P\rightarrow Q))\wedge(Q\rightarrow R)]\rightarrow R$&\\
+
+\end{tabular}$$
+
+再注意一个命题公式等值式（与假言推理很像）,
+读者自行用命题演算（或者真值表）证明:
+
+$$(A\rightarrow B)\wedge A\Leftrightarrow A\wedge B\eqno{(*)}$$
+
+此结果留做习题。从而，利用(*)的结论继续演算，
+
+$$\begin{tabular}{rll}
+原式
+$\Leftrightarrow$&
+$[P\wedge Q\wedge(Q\rightarrow R)]\rightarrow R$&\\
+
+$\Leftrightarrow$&
+$(P\wedge Q\wedge R)\rightarrow R$&\\
+
+$\Leftrightarrow$&
+$(\neg P\vee \neg Q\vee\neg R)\vee R$&\\
+
+$\Leftrightarrow$&
+$(\neg P\vee \neg Q)\vee(\neg R\vee R)$&\\
+
+$\Leftrightarrow$&
+$(\neg P\vee \neg Q)\vee 1$&\\
+$\Leftrightarrow$&$1$&\\
+\end{tabular}$$
+从而证毕。
+\end{proof}
+
+\begin{thm}[逻辑蕴含是偏序关系]
+对于任意命题公式$A,B,C$，成立
+
+（1）（自反性）$A\Rightarrow A$.
+
+（2）（反对称性）如果$A\Rightarrow B$并且
+$B\Rightarrow A$，那么$A\Leftrightarrow B$.
+
+（3）（传递性）如果$A\Rightarrow B$并且
+$B\Rightarrow C$，那么$A\Rightarrow C$.
+\end{thm}
+
+\begin{proof}无非是验证某些命题公式是重言式。
+
+（1）只需验证$A\rightarrow A$是重言式。这是显然的。
+
+（2）由条件知道，
+$A\rightarrow B$与$B\rightarrow A$都是重言式，
+所以$(A\rightarrow B)\wedge(B\rightarrow A)$也是重言式。
+再注意等价律
+$$(A\rightarrow B)\wedge(B\rightarrow A)
+\Leftrightarrow A\leftrightarrow B$$
+而上式左边是重言式，
+从而右边$A\leftrightarrow B$也为重言式。
+这就说明$A\Leftrightarrow B$.
+
+（3）由条件知$A\rightarrow B$与$B\rightarrow C$都是重言式，
+所以$(A\rightarrow B)\wedge(B\rightarrow C)$也是重言式。
+再注意假言三段论
+$$[(A\rightarrow B)\wedge(B\rightarrow C)]
+\Rightarrow(A\rightarrow C)$$
+从而由引理\ref{luoji-yunhan-lemma}可知，
+$A\rightarrow C$也为重言式，
+也就是说$A\Rightarrow C$，得证。
+\end{proof}
+
+
+
 \subsection{主体与谓词逻辑（待补）}
 \subsection{量词与一阶逻辑（待补）}
 \subsection{一阶逻辑等值演算与推理（待补）}
