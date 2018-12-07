@@ -2,11 +2,18 @@
 
 数理逻辑是研究推理规则的数学分支。
 而本章仅仅介绍数理逻辑的一些主要概念、基本原理，不打算进一步深究。
-在本章，我们常用的自然语言（中文 or English）中的表达逻辑关系、推理证明的各个要素
+在本章，我们常用的自然语言（中文 or English）
+中的表达逻辑关系、推理证明的各个要素
 将会被逐步地符号化，即通过构造各种符号语言来代替自然语言，
-最终得到完全由符号构成的形式语言。为达到这个邪恶的目的，
-在本章第一节我们首先将关联词语（逻辑连接词）符号化，比如：
-不但而且、虽然但是、因为所以、如果那么、只要就、只有才……等等……
+最终得到完全由符号构成的形式语言。
+
+为达到这个邪恶的目的，
+在本章第1-3节我们首先将关联词语
+（两个命题之间的逻辑连接词）符号化，比如：
+不但而且、虽然但是、因为所以、如果那么、只要就、只有才……等等；
+而在第4-6节，我们将分析一个命题的内部构造，
+将主体词、谓词、量词等“句子成分”也符号化。
+最后在第7节，我们介绍在证明与整数有关的命题时常用的数学归纳法。
 
 \subsection{命题与连接词}
 \textbf{命题}是数理逻辑中的一个基本概念。
@@ -756,8 +763,12 @@ $\neg p\rightarrow q$&\text{是假命题}\\
 “$\Leftrightarrow$”十分类似。
 由“逻辑蕴含”的定义，容易知道：
 
-\begin{lemma}对于命题公式$A,B$，则$A\Rightarrow B$当且仅当
-$A\rightarrow B$是重言式。
+\begin{lemma}对于命题公式$A,B$，则以下成立：
+
+（1）如果$A\Leftrightarrow B$，
+那么$A$为重言式当且仅当$B$为重言式。
+
+（2）$A\Rightarrow B$当且仅当$A\rightarrow B$是重言式。
 \end{lemma}
 
 \begin{proof}
@@ -773,6 +784,22 @@ $A\rightarrow B$是重言式。
 给定$A,B$的任何一个赋值，我们只需证明$B$为真。
 由于$A$是重言式，所以该赋值下$A$为真。又因为$A\Rightarrow B$，
 从而由逻辑蕴含的定义可以看出，$B$必为真。得证。
+\end{proof}
+
+\begin{lemma}对于命题公式$A,B$，则$A\Leftrightarrow B$当且仅当
+$A\Rightarrow B$且$B\Rightarrow A$.
+\end{lemma}
+
+\begin{proof}
+只需注意到上一节定理\ref{prop-dengzhi-gongshi-3}之中的等价律
+$$A\leftrightarrow B\Leftrightarrow
+(A\rightarrow B)\wedge(B\rightarrow A)$$
+
+现在，如果$A\Leftrightarrow B$，那么$A\leftrightarrow B$是重言式，
+所以由等价律知$(A\rightarrow B)\wedge(B\rightarrow A)$也是重言式，
+从而$A\rightarrow B$与$B\rightarrow A$都是重言式，
+也就是说$A\Rightarrow B$且$B\Rightarrow A$.
+以上推理步步可逆，从而反之亦然。
 \end{proof}
 
 \begin{thm}[假言推理]\label{jiayan-tuili}
@@ -894,6 +921,53 @@ $$[(A\rightarrow B)\wedge(B\rightarrow C)]
 从而由引理\ref{luoji-yunhan-lemma}可知，
 $A\rightarrow C$也为重言式，
 也就是说$A\Rightarrow C$，得证。
+\end{proof}
+
+特别注意到传递性，由此性质，
+不难知道，对于$n(\geq 2)$个命题公式$P_1,...,P_n$，
+如果有$P_1\Rightarrow P_2$，
+$P_2\Rightarrow P_3$，...，$P_{n-1}\Rightarrow P_n$，
+那么一定有$P_1\Rightarrow P_n$.这正是“一步一步地推理”。\vs
+
+注意到，上一节我们分成三个定理，
+介绍了$16$组常用的命题公式等值式。
+注意到对于每个命题公式等值式$A\Leftrightarrow B$，
+那么就有两条推理定律$A\Rightarrow B$与$B\Rightarrow A$。
+除此之外，我们再来介绍一些常用的推理定律：
+
+\begin{thm}[常用的推理定律]
+对于任意命题公式$A,B,C,D$，成立以下:
+
+（1）（附加律）$$A\Rightarrow A\vee B$$
+
+（2）（化简律）$$A\wedge B\Rightarrow A$$
+
+（3）（假言推理）$$(A\rightarrow B)\wedge A\Rightarrow B$$
+
+（4）（拒取式）$$(A\rightarrow B)\wedge \neg B\Rightarrow \neg A$$
+
+（5）（析取三段论）$$(A\vee B)\wedge\neg B\Rightarrow A$$
+
+（6）（假言三段论）$$(A\rightarrow B)\wedge(B\rightarrow C)
+\Rightarrow(A\rightarrow C)$$
+
+（7）（等价三段论）$$(A\leftrightarrow B)\wedge(B\leftrightarrow C)
+\Rightarrow(A\leftrightarrow C)$$
+
+（8）（构造性二难）$$(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge(A\vee C)\Rightarrow(B\vee D)$$
+
+（9）（破坏性二难）$$(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge(\neg B\vee \neg D)\Rightarrow(\neg A\vee \neg C)$$
+\end{thm}
+
+\begin{proof}
+无非是把上述式子中的“$\Rightarrow$”全都改成“$\rightarrow$”，
+然后证明如此得到的命题公式是重言式。
+可以用真值表的方法去验证，也可以等值演算。
+注意假言推理（3）与假言三段论（6）已经被我们证明。
+
+(待补)
 \end{proof}
 
 
