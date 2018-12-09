@@ -577,9 +577,10 @@ $\neg A$ &\text{（吸收律）}\\
 
 其实，在上述等值演算的过程中，我们“偷偷地”使用了以下重要规则：
 
-\begin{thm}[置换规则]
+\begin{thm}[等值演算的置换规则]
 设$\Phi(A)$是含有命题公式$A$的命题公式，$B$是另一个命题公式。
 如果$A\Leftrightarrow B$，那么必有$\Phi(A)\Leftrightarrow\Phi(B)$.
+\label{等值演算的置换规则}
 \end{thm}
 这个道理几乎是显然的，由等值“$\Leftrightarrow$”的定义容易得到。
 我们在定理\ref{prop-dengzhi-gongshi-3}的（14）-（16）
@@ -596,7 +597,9 @@ $\neg A$ &\text{（吸收律）}\\
 那么$A\Leftrightarrow C$.
 \end{thm}
 
-这个也容易证明，几乎是显然的。\vsp
+这个也容易证明，几乎是显然的。
+要特别注意“传递性”，
+它在我们在之前的等值演算过程中也被偷偷使用。\vsp
 
 接下来我们举一些等值演算的例子，来结束本节。
 
@@ -683,12 +686,13 @@ $$\begin{tabular}{cll}
 $\Leftrightarrow$&
 $[(p\wedge(\neg q\vee r))\vee(\neg p\wedge\neg(\neg q\vee r))]\rightarrow
 (\neg p\rightarrow q)$
-&\text{（用例子\ref{dengjialv-ii}杀掉等价连接词）}\\
+&\text{（用例子\ref{dengjialv-ii}
+\textbf{杀掉}等价连接词）}\\
 
 $\Leftrightarrow$&
 $\neg[(p\wedge(\neg q\vee r))\vee(\neg p\wedge\neg(\neg q\vee r))]\vee
 (p\vee q)$
-&\text{（用蕴含律杀掉蕴含连接词）}\\
+&\text{（用蕴含律\textbf{杀掉}蕴含连接词）}\\
 
 $\Leftrightarrow$&
 $[(\neg p\vee(q\wedge\neg r))\wedge(p\vee\neg q\vee r))]\vee
@@ -897,6 +901,7 @@ $B\Rightarrow A$，那么$A\Leftrightarrow B$.
 
 （3）（传递性）如果$A\Rightarrow B$并且
 $B\Rightarrow C$，那么$A\Rightarrow C$.
+\label{logic imply-partial order}
 \end{thm}
 
 \begin{proof}无非是验证某些命题公式是重言式。
@@ -929,10 +934,73 @@ $A\rightarrow C$也为重言式，
 $P_2\Rightarrow P_3$，...，$P_{n-1}\Rightarrow P_n$，
 那么一定有$P_1\Rightarrow P_n$.这正是“一步一步地推理”。\vs
 
-注意到，上一节我们分成三个定理，
-介绍了$16$组常用的命题公式等值式。
-注意到对于每个命题公式等值式$A\Leftrightarrow B$，
-那么就有两条推理定律$A\Rightarrow B$与$B\Rightarrow A$。
+类似于上一节关于“$\Leftrightarrow$”的等值演算，
+我们也想对逻辑蕴含“$\Rightarrow$”发展一套演算的理论。
+其中，逻辑蕴含的传递性是其重要保证；
+而另一个必要的保证是：
+
+\begin{thm}[逻辑蕴含的置换规则]
+\label{逻辑蕴含的置换规则}
+对于任意的命题公式$A,B,C$，
+如果成立$A\Rightarrow B$，那么有：
+
+（1）$A\vee C\Rightarrow B\vee C$
+
+（2）$A\wedge C\Rightarrow B\wedge C$
+\end{thm}
+
+\begin{proof}
+条件$A\Rightarrow B$意味着$A\rightarrow B$为永真式，
+换句话说，$(A\rightarrow B)\Leftrightarrow 1$.
+
+我们先来证（1）.
+只需证明$(A\vee C)\rightarrow (B\vee C)$是永真式。
+等值演算如下：
+$$\begin{tabular}{cl}
+&$(A\vee C)\rightarrow (B\vee C)$\\
+$\Leftrightarrow$&$\neg(A\vee C)\vee (B\vee C)$\\
+$\Leftrightarrow$&$(\neg A\wedge\neg C)\vee (B\vee C)$\\
+$\Leftrightarrow$&$(\neg A\vee B\vee C)
+\wedge(\neg C\vee B\vee C)$\\
+$\Leftrightarrow$&$[(\neg A\vee B)\vee C]
+\wedge[(\neg C\vee C)\vee B]$\\
+$\Leftrightarrow$&$[(A\rightarrow B)\vee C]\wedge(1\vee B)$\\
+$\Leftrightarrow$&$(1\vee C)\wedge(1\vee B)$\\
+$\Leftrightarrow$&$1$\\
+\end{tabular}$$
+
+第（2）条类似用等值演算去证明。留作习题。
+\end{proof}
+
+回忆上一节定理\ref{等值演算的置换规则},
+等值演算的置换规则，那个几乎显然的定理表明，
+把一个命题公式当中的任意给定的某一部分
+替换成与之等值的命题公式，
+所得到的新的命题公式与原命题公式等值——
+这在等值演算的过程中被“偷偷地”反复使用。
+
+而逻辑蕴含版本的置换原则，结论没有那么好，
+也就是说（沿用定理\ref{等值演算的置换规则}中的记号），
+对于含有命题公式$A$的命题公式$\Phi(A)$，
+$A\Rightarrow B$一般不能得到$\Phi(A)\Rightarrow\Phi(B)$.
+一个最典型的例子是，
+$A\Rightarrow B$并不意味着$\neg A\Rightarrow \neg B$.
+读者自行举反例来说明这一点（留作习题）。
+也就是说，$\Phi(A)=\neg A$的情形就不对。
+
+而本定理\ref{逻辑蕴含的置换规则}表明，
+当$\Phi(A)=A\vee C$或者$A\wedge C$的情形，
+可以把$A$“替换掉”（其中$C$是任意命题公式）。
+这个结论在今后的演算中足够用了，
+我们在今后会不加声明地“偷偷使用”。\vsp
+
+与等值演算的基本等值式（上一节那16组）类似，
+为了发展“$\Rightarrow$”的演算理论，
+我们也需要一些基本的逻辑蕴含式，称之为“\textbf{推理定律}”。
+
+首先注意到上一节$16$组常用的命题公式等值式。
+对于每个命题公式等值式$A\Leftrightarrow B$，
+都有两条推理定律$A\Rightarrow B$与$B\Rightarrow A$.
 除此之外，我们再来介绍一些常用的推理定律：
 
 \begin{thm}[常用的推理定律]
@@ -959,6 +1027,7 @@ $P_2\Rightarrow P_3$，...，$P_{n-1}\Rightarrow P_n$，
 
 （9）（破坏性二难）$$(A\rightarrow B)\wedge(C\rightarrow D)
 \wedge(\neg B\vee \neg D)\Rightarrow(\neg A\vee \neg C)$$
+\label{9条推理定律}
 \end{thm}
 
 \begin{proof}
@@ -967,8 +1036,125 @@ $P_2\Rightarrow P_3$，...，$P_{n-1}\Rightarrow P_n$，
 可以用真值表的方法去验证，也可以等值演算。
 注意假言推理（3）与假言三段论（6）已经被我们证明。
 
-(待补)
+（1）对于附加律，只需要证明$A\rightarrow(A\vee B)$是重言式。
+等值演算如下：
+$$\begin{tabular}{cl}
+&$A\rightarrow(A\vee B)$\\
+$\Leftrightarrow$&$\neg A\vee(A\vee B)$\\
+$\Leftrightarrow$&$(\neg A\vee A)\vee B$\\
+$\Leftrightarrow$&$1\vee B$\\
+$\Leftrightarrow$&$1$\\
+\end{tabular}$$
+
+其余留作习题，作为等值演算的练习。
 \end{proof}
+
+事实上，除了真值表法与等值演算，
+更加方便的方式是利用定理\ref{logic imply-partial order}
+当中“$\Rightarrow$”的传递性、
+逻辑蕴含的置换规则
+（定理\ref{逻辑蕴含的置换规则}），以及已知的推理定律，
+来推演出新的推理定律，也就是
+与等值演算类似的\textbf{推理演算}方法。
+
+现在假定我们已经掌握
+定理\ref{9条推理定律}的前6条
+（以及上一节中16组常用等值式，
+每个等值式都是两条推理定律），
+我们用推理演算来证明（7）-（9）.
+
+等价三段论（7）的推理演算证明如下:
+
+$$\begin{tabular}{cll}
+&$(A\leftrightarrow B)\wedge(B\leftrightarrow C)$&\\
+
+$\Rightarrow$&$[(A\rightarrow B)\wedge(B\rightarrow A)]
+\wedge[(B\rightarrow C)\wedge(C\rightarrow B)]$
+&（等价律）\\
+
+$\Rightarrow$&$[(A\rightarrow B)\wedge(B\rightarrow C)]
+\wedge[(C\rightarrow B)\wedge(B\rightarrow A)]$
+&（交换律，结合律）\\
+
+$\Rightarrow$&$(A\rightarrow C)\wedge(C\rightarrow A)$
+&（假言三段论）\\
+
+$\Rightarrow$&$A\leftrightarrow C$
+&（等价律）\\
+\end{tabular}$$
+
+构造性二难（8）的推理演算证明如下：
+$$\begin{tabular}{cll}
+&$(A\rightarrow B)\wedge(C\rightarrow D)\wedge(A\vee C)$&\\
+
+$\Rightarrow$&$[(A\rightarrow B)\wedge(C\rightarrow D)\wedge A]
+\vee[(A\rightarrow B)\wedge(C\rightarrow D)\wedge C]$
+&（分配律）\\
+
+$\Rightarrow$&$[((A\rightarrow B)\wedge A)\wedge(C\rightarrow D)]
+\vee[(A\rightarrow B)\wedge((C\rightarrow D)\wedge C)]$
+&（交换律，结合律）\\
+
+$\Rightarrow$&$[B\wedge(C\rightarrow D)]
+\vee[(A\rightarrow B)\wedge D]$
+&（假言推理）\\
+
+$\Rightarrow$&$B\vee D$
+&（化简律）\\
+\end{tabular}$$
+
+破坏性二难（9）的推理演算证明如下：
+$$\begin{tabular}{cll}
+&$(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge(\neg B\vee \neg D)$&\\
+
+$\Rightarrow$&$[(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge\neg B]\vee[(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge\neg D]$&（分配律）\\
+
+$\Rightarrow$&$[((A\rightarrow B)\wedge\neg B)
+\wedge(C\rightarrow D)]\vee[(A\rightarrow B)\wedge((C\rightarrow D)
+\wedge\neg D)]$&（交换律，结合律）\\
+
+$\Rightarrow$&$[\neg A\wedge(C\rightarrow D)]
+\vee[(A\rightarrow B)\wedge\neg C]$&（拒取式）\\
+
+$\Rightarrow$&$(\neg A)
+\vee(\neg C)$&（化简律）\\
+\end{tabular}$$
+
+从而证明完毕。\vsp
+
+构造性二难推理与破坏性二难推理是常用的逻辑推理技巧，
+它有以下常用的推论：
+
+\begin{thm}[二难推理的简单版本]
+对于任意命题公式$A,B,C$，成立以下推理定律：
+
+$$(A\rightarrow C)\wedge(B\rightarrow \neg C)
+\Rightarrow(\neg A\vee\neg B)$$
+
+$$(C\rightarrow A)\wedge(\neg C\rightarrow B)
+\Rightarrow(A\vee B)\eqno{(*)}$$
+
+$$(A\rightarrow B)\wedge(\neg A\rightarrow B)
+\Rightarrow B$$
+
+$$(A\rightarrow B)\wedge(A\rightarrow \neg B)
+\Rightarrow \neg A$$
+\end{thm}
+
+\begin{proof}
+这是定理\ref{9条推理定律}当中
+构造性二难（8）与破坏性二难（9）的简单推论。
+例如，在构造性二难推理定律
+$$(A\rightarrow B)\wedge(C\rightarrow D)
+\wedge(A\vee C)\Rightarrow(B\vee D)$$
+当中，由$A,B,C,D$的任意性，我们取$A=\neg C$代入上式，
+就能整理出(*)式。其余类似。细节留给读者。
+\end{proof}
+
+当然，我们可以直接用推理演算或者等值演算来证明。
 
 
 
