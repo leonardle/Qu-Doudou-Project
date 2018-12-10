@@ -667,6 +667,7 @@ $(p\wedge q)\vee(\neg p\wedge\neg q)$翻译成自然语言为
 $$(p\leftrightarrow(\neg q\vee r))\rightarrow
 (\neg p\rightarrow q)$$
 判断它是否为重言式。
+\label{一个判断重言式的典型例子}
 \end{example}
 \begin{proof}[Solution]我们介绍三种方法。
 
@@ -1155,6 +1156,55 @@ $$(A\rightarrow B)\wedge(C\rightarrow D)
 \end{proof}
 
 当然，我们可以直接用推理演算或者等值演算来证明。
+我们再来看一个推理演算的例子：
+
+\begin{example}[回顾上一节末尾的例子
+\ref{一个判断重言式的典型例子}]
+用推理演算的方法来证明
+$$(p\leftrightarrow(\neg q\vee r))\rightarrow
+(\neg p\rightarrow q)$$
+是重言式。
+\end{example}
+
+\begin{proof}
+在上一节已经介绍了三种方法，
+在此我们采用推理演算的“方法四”：
+注意到有
+$$\begin{tabular}{cll}
+&$p\leftrightarrow(\neg q\vee r)$&\\
+
+$\Rightarrow$&$[p\rightarrow(\neg q\vee r)]\wedge
+[(\neg q\vee r)\rightarrow p]$&（等价律）\\
+
+$\Rightarrow$&$(\neg q\vee r)\rightarrow p$&（化简律）\\
+
+$\Rightarrow$&$\neg(\neg q\vee r)\vee p$&（蕴含律）\\
+
+$\Rightarrow$&$(q\wedge\neg r)\vee p$&（德摩根律，双重否定律）\\
+
+$\Rightarrow$&$(q\vee p)\wedge(\neg r\vee p)$&（分配律）\\
+
+$\Rightarrow$&$q\vee p$&（化简律）\\
+
+$\Rightarrow$&$\neg p\rightarrow q$&（双重否定律，蕴含律）\\
+\end{tabular}$$
+
+从而得到
+$$[p\leftrightarrow(\neg q\vee r)]
+\Rightarrow (\neg p\rightarrow q)$$
+也就是说，
+$$[p\leftrightarrow(\neg q\vee r)]
+\rightarrow (\neg p\rightarrow q)$$
+是重言式。证毕。
+\end{proof}
+
+与上一节采用的等值演算方法相比，
+推理演算更加简便。但是推理演算
+在判定重言式时只适用于形如$A\rightarrow B$的命题公式。
+另外，推理演算无法断定某个命题公式不是重言式，
+具体地说，即使有$A\Rightarrow\neg B$，
+也并不意味着$A\rightarrow B$不是重言式。
+这个留给读者思考（留作习题）。
 
 
 
