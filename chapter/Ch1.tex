@@ -486,6 +486,11 @@ $A,B$之中的某一个命题公式（不妨为$A$）
 命题公式$A$的\textbf{哑元}。
 \end{rem}
 
+事实上，对于含有$n$个命题变量
+$p_1,...,p_n$的命题公式$P$,
+则对于除了$p_1,...,p_n$之外的任何一个命题变量$q$，
+$q$都可以被视为命题公式$P$的哑元。
+
 \begin{example}[哑元的简单例子]
 考虑两个命题公式
 $$P:=p\rightarrow q$$
@@ -1395,6 +1400,118 @@ $$\{A\rightarrow B,B\rightarrow C\}
 \models(A\rightarrow C)$$
 其余的若干推理定律也可以类似被改写。
 
+\begin{example}指出下列语句中哪些是条件，
+哪些是结论，并判断下列推理是否有效：
+
+（1）曲豆豆今天吃饭或者吃屎，
+曲豆豆今天没吃饭，所以曲豆豆今天吃屎。
+
+（2）如果曲豆豆没挂科，那么曲豆豆去看电影；
+如果曲豆豆去看电影，那么曲豆豆不去跑步；
+曲豆豆没去跑步。因此，曲豆豆没有挂科。
+
+（3）只要曲豆豆曾经到过受害者的房间并且12点之前没有离开，
+曲豆豆就是嫌疑犯；曲豆豆曾经到过受害者的房间；
+如果曲豆豆在12点以前离开，
+门口老大爷就会看见曲豆豆；门口老大爷没有看到曲豆豆。
+因此，曲豆豆是嫌疑犯。
+\end{example}
+
+\begin{proof}[Solution]我们将上述语句符号化。
+
+（1）我们令$p:"\text{曲豆豆今天吃饭}"$,
+$q:"\text{曲豆豆今天吃屎}"$.则条件为
+$\{p\vee q,\neg p\}$，结论为$q$.
+
+推理$\{p\vee q,\neg p\}\models q$是有效的，这是因为
+由析取三段论，$(p\vee q)\wedge\neg p\Rightarrow q$.\vs
+
+（2）我们令$p:"\text{曲豆豆没有挂科}"$,
+$q:"\text{曲豆豆去看电影}"$，
+$r:"\text{曲豆豆没去跑步}"$。
+则条件为$\{p\rightarrow q,q\rightarrow r,r\}$，
+结论为$p$。
+
+这个推理是无效的，因为
+$$[(p\rightarrow q)\wedge
+(q\rightarrow r)\wedge r]\rightarrow p$$
+不是重言式，当$p$为假、$q,r$为真的时候，上式为假。\vs
+
+（3）我们令$p:"\text{曲豆豆曾经到过受害者的房间}"$，
+$q:"\text{曲豆豆12点之前没有离开}"$，
+$r:"\text{门口老大爷看到曲豆豆}"$，
+$s:"\text{曲豆豆是嫌疑犯}"$。
+条件为$\{(p\wedge q)\rightarrow s,p,\neg q\rightarrow r,\neg r\}$，
+结论为$s$.
+
+这个推理是有效的，我们构造证明如下：
+$$\begin{tabular}{cll}
+&$[(p\wedge q)\rightarrow s]\wedge p\wedge
+(\neg q\rightarrow r)\wedge\neg r$&\\
+
+$\Rightarrow$&$[(p\wedge q)\rightarrow s]\wedge p\wedge
+[(\neg q\rightarrow r)\wedge\neg r]$&\\
+
+$\Rightarrow$&$[(p\wedge q)\rightarrow s]\wedge p\wedge
+q$&（拒取式，双重否定律）\\
+
+$\Rightarrow$&$[p\wedge q]\wedge[(p\wedge q)\rightarrow s]$
+&（交换律，结合律）\\
+
+$\Rightarrow$&$s$&（假言推理）\\
+\end{tabular}$$
+
+从而，$$[(p\wedge q)\rightarrow s]\wedge p\wedge
+(\neg q\rightarrow r)\wedge\neg r\Rightarrow s$$
+也就是说，
+$$\{(p\wedge q)\rightarrow s,p,
+\neg q\rightarrow r,\neg r\}\models s$$
+\end{proof}\vsp
+
+在本节最后，我们再介绍推理证明当中常见的两种方法：
+附加前提证明法与归谬法。
+
+\begin{thm}[附加前提证明法]
+对于命题公式$P_1,...,P_n$以及$Q,R$，则
+$$\{P_1,...,P_n\}\models(Q\rightarrow R)$$
+当且仅当
+$$\{P_1,...,P_n,Q\}\models R$$
+\end{thm}
+
+\begin{proof}
+我们其实已经证明过了，
+只是把之前的结果换了一种说法。
+回顾例子\ref{fujia-qianti}，从而我们有等值关系
+$$\begin{tabular}{cl}
+&$(P_1\wedge...\wedge P_n)\rightarrow(Q\rightarrow R)$\\
+$\Leftrightarrow$&
+$(P_1\wedge...\wedge P_n)\wedge Q\rightarrow R)$
+\end{tabular}$$
+
+因此上式左边为重言式，当且仅当右边为重言式。
+从而得证。
+\end{proof}
+
+\begin{thm}[归谬法]
+对于命题公式$P_1,...,P_n$以及$Q$，
+则$$\{P_1,...,P_n\}\models Q$$
+当且仅当$(P_1\wedge...\wedge P_n)\wedge\neg Q$为矛盾式。
+\end{thm}
+
+\begin{proof}
+这是因为，
+$$\begin{tabular}{cl}
+&$(P_1\wedge...\wedge P_n)\rightarrow Q$\\
+$\Leftrightarrow$&$\neg(P_1\wedge...\wedge P_n)\vee Q$\\
+$\Leftrightarrow$&$\neg[(P_1\wedge...\wedge P_n)\wedge\neg Q]$\\
+\end{tabular}$$
+
+从而由上述等值关系可见，
+$(P_1\wedge...\wedge P_n)\rightarrow Q$为重言式，
+当且仅当$\neg[(P_1\wedge...\wedge P_n)\wedge\neg Q]$
+为重言式，也就是说
+$(P_1\wedge...\wedge P_n)\wedge\neg Q$为矛盾式。证毕。
+\end{proof}
 
 
 \subsection{主体与谓词逻辑（待补）}
