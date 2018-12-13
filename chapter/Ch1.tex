@@ -230,9 +230,9 @@ p\wedge(\neg p)\,\,\,,\,\,\,
 我们将由连接词组成的复合命题的真假性
 总结为如下\textbf{真值表}：
 
-$$\begin{tabular}{|c||c|c|c|c|c|} 
+$$\begin{tabular}{|c||c|c|c|c|c|}
 \hline
-$p\,\,q$ & $\neg p$ & $p\wedge q$ & $p\vee q$ 
+$p\,\,q$ & $\neg p$ & $p\wedge q$ & $p\vee q$
 & $p\rightarrow q$ & $p\leftrightarrow q$\\
 \hline
 $0\,\,0$ & 1 & 0 &0&1&1 \\
@@ -639,7 +639,7 @@ $1\,\,1$ & 1 & 1 & 1 & 1  \\
 
 接下来看（8）结合律，我们暴力列出如下真值表：
 
-$$\begin{tabular}{|c||cc|cc|}   
+$$\begin{tabular}{|c||cc|cc|}
 \hline
 $A\,\,B\,\,C$ & $(A\wedge B)\wedge C$ & $A\wedge (B\wedge C)$
 & $(A\vee B)\vee C$ & $A\vee (B\vee C)$\\
@@ -693,7 +693,7 @@ $\Leftrightarrow$& $\neg B\rightarrow\neg A$ &\text{（蕴含律）}\\
 从而假言易位（14）得证。
 
 再注意到
-$$\begin{tabular}{cll}  
+$$\begin{tabular}{cll}
 &$A\leftrightarrow B$&\\
 $\Leftrightarrow$& $(A\rightarrow B)
 \wedge(B\rightarrow A)$ &\text{（等价律）}\\
@@ -707,7 +707,7 @@ $\Leftrightarrow$& $\neg A
 从而等价否定（15）得证。
 
 最后注意到
-$$\begin{tabular}{cll}  
+$$\begin{tabular}{cll}
 &$(A\rightarrow B)\wedge(A\rightarrow \neg B)$&\\
 $\Leftrightarrow$&
 $(\neg A\vee B)\wedge(\neg A\vee\neg B)$ &\text{（蕴含律）}\\
@@ -719,15 +719,15 @@ $(\neg A)\vee
 [B\wedge(\neg A\vee\neg B)]$ &\text{（吸收律）}\\
 $\Leftrightarrow$&
 $(\neg A)\vee
-[(B\wedge\neg A)\vee(B\wedge\neg B)]$ 
+[(B\wedge\neg A)\vee(B\wedge\neg B)]$
 &\text{（交换律，分配律）}\\
 $\Leftrightarrow$&
 $[(\neg A)\vee
-(B\wedge\neg A)]\vee0$ 
+(B\wedge\neg A)]\vee0$
 &\text{（结合律，矛盾律）}\\
 $\Leftrightarrow$&
 $(\neg A)\vee
-(\neg A\wedge B)$ 
+(\neg A\wedge B)$
 &\text{（同一律，交换律）}\\
 $\Leftrightarrow$&
 $\neg A$ &\text{（吸收律）}\\
@@ -917,7 +917,7 @@ $\neg p\rightarrow q$&\text{是假命题}\\
 本例还会有方法四：下一节将介绍的命题逻辑的推理方法。
 
 
-\subsection{推理与证明（正在更新）}
+\subsection{推理与证明}
 
 本节其实还是对命题公式进行等值演算。
 
@@ -963,6 +963,7 @@ $\neg p\rightarrow q$&\text{是假命题}\\
 
 \begin{lemma}对于命题公式$A,B$，则$A\Leftrightarrow B$当且仅当
 $A\Rightarrow B$且$B\Rightarrow A$.
+\label{等值=互相逻辑等价}
 \end{lemma}
 
 \begin{proof}
@@ -1079,15 +1080,7 @@ $B\Rightarrow C$，那么$A\Rightarrow C$.
 
 （1）只需验证$A\rightarrow A$是重言式。这是显然的。
 
-（2）由条件知道，
-$A\rightarrow B$与$B\rightarrow A$都是重言式，
-所以$(A\rightarrow B)\wedge(B\rightarrow A)$也是重言式。
-再注意等价律
-$$(A\rightarrow B)\wedge(B\rightarrow A)
-\Leftrightarrow A\leftrightarrow B$$
-而上式左边是重言式，
-从而右边$A\leftrightarrow B$也为重言式。
-这就说明$A\Leftrightarrow B$.
+（2）这是引理\ref{等值=互相逻辑等价}的显然推论。
 
 （3）由条件知$A\rightarrow B$与$B\rightarrow C$都是重言式，
 所以$(A\rightarrow B)\wedge(B\rightarrow C)$也是重言式。
@@ -1121,7 +1114,7 @@ $P_2\Rightarrow P_3$，...，$P_{n-1}\Rightarrow P_n$，
 \end{thm}
 
 \begin{proof}
-条件$A\Rightarrow B$意味着$A\rightarrow B$为永真式，
+条件$A\Rightarrow B$意味着$A\rightarrow B$为重言式，
 换句话说，$(A\rightarrow B)\Leftrightarrow 1$.
 
 我们先来证（1）.
@@ -1313,6 +1306,7 @@ $$(A\rightarrow B)\wedge(\neg A\rightarrow B)
 
 $$(A\rightarrow B)\wedge(A\rightarrow \neg B)
 \Rightarrow \neg A$$
+\label{二难推理简单版本}
 \end{thm}
 
 \begin{proof}
@@ -1485,7 +1479,7 @@ $$\{P_1,...,P_n,Q\}\models R$$
 $$\begin{tabular}{cl}
 &$(P_1\wedge...\wedge P_n)\rightarrow(Q\rightarrow R)$\\
 $\Leftrightarrow$&
-$(P_1\wedge...\wedge P_n)\wedge Q\rightarrow R)$
+$[(P_1\wedge...\wedge P_n)\wedge Q]\rightarrow R$
 \end{tabular}$$
 
 因此上式左边为重言式，当且仅当右边为重言式。
@@ -1514,8 +1508,189 @@ $(P_1\wedge...\wedge P_n)\wedge\neg Q$为矛盾式。证毕。
 \end{proof}
 
 
-\subsection{主体与谓词逻辑（待补）}
-\subsection{量词与一阶逻辑（待补）}
-\subsection{一阶逻辑等值演算与推理（待补）}
+\subsection{谓词与量词（待补）}
+\subsection{一阶逻辑的演算（待补）}
+\subsection{一阶逻辑的推理（待补）}
 \subsection{数学归纳法（待补）}
-\subsection{习题（待补）}
+\subsection{习题（正在更新）}
+
+\begin{prob}判断下列命题的真假：
+
+（1）8是偶数的充分必要条件是8能被$3$整除。
+
+（2）如果3是无理数，那么5是无理数。
+
+（3）中国位于亚洲或者北美洲。
+
+（4）虽然2是最小的素数，但2不是最小的自然数。
+
+\end{prob}\vs
+
+\begin{prob}对于命题变量$p,q,r$，试给出
+关于这3个命题变量的下列命题公式的真值表：
+
+（1）$\neg(\neg p\wedge q)\vee\neg r$
+
+（2）$(p\wedge q)\rightarrow\neg p$
+
+（3）$[(p\rightarrow q)\wedge(q\leftrightarrow r)]
+\rightarrow(p\rightarrow r)$
+\end{prob}\vs
+
+\begin{prob}[异或连接词]对于两个命题变量$p,q$，
+我们通过以下真值表来定义两个命题的
+\textbf{异或}连接词“$\oplus$”：
+
+$$\begin{tabular}{|c||c|}
+\hline
+$p\,\,q$&$p\oplus q$\\
+\hline
+$0\,\,0$&$0$\\
+$0\,\,1$&$1$\\
+$1\,\,0$&$1$\\
+$1\,\,1$&$0$\\
+\hline
+\end{tabular}$$
+直接用真值表验证以下（含有异或连接词的）
+命题公式等值式：
+$$p\oplus q\Leftrightarrow\neg(p\leftrightarrow q)
+\Leftrightarrow(p\vee q)\wedge\neg(p\wedge q)$$
+
+\end{prob}
+
+注意，“异或”连接词在我们的自然语言中也常出现。
+“要么$p$，要么$q$”、
+“不是$p$就是$q$”、“$p$ or $q$ but not both”等等，
+都被符号化为“$p\oplus q$”.注意它与析取“$\vee$”的区别。\vs
+
+\begin{prob}[异或的结合律]对于3个命题变量$p,q,r$，
+用真值表法证明异或的结合律：
+$$(p\oplus q)\oplus r\Leftrightarrow 
+p\oplus(q\oplus r)$$
+观察真值表，然后用尽量简练的自然语言来表述
+“$p\oplus q\oplus r$”.
+\end{prob}\vs
+
+\begin{prob}[与非、或非连接词]
+对于命题变量$p,q$，我们通过以下真值表来定义
+\textbf{与非}连接词“$\uparrow$”
+和\textbf{或非}连接词“$\downarrow$”：
+
+$$\begin{tabular}{|c||c|c|}
+\hline
+$p\,\,q$&$p\uparrow q$&$p\downarrow q$\\
+\hline
+$0\,\,0$&$1$&$1$\\
+$0\,\,1$&$1$&$0$\\
+$1\,\,0$&$1$&$0$\\
+$1\,\,1$&$0$&$0$\\
+\hline
+\end{tabular}$$
+试用真值表法来证明以下命题公式等值式：
+$$p\uparrow q\Leftrightarrow\neg(p\wedge q)$$
+$$p\downarrow q\Leftrightarrow\neg(p\vee q)$$
+有没有自然语言当中的“关联词语”可以被抽象为上述连接词？
+\end{prob}\vs
+
+\begin{prob}[一般的多元连接词]
+
+\end{prob}\vs
+
+\begin{prob}[合取范式与析取范式]
+
+\end{prob}\vs
+
+\begin{prob}[完备连接词组]
+
+\end{prob}\vs
+
+\begin{prob}[基本等值公式的验证]
+回忆1.2节当中提到的命题公式的16组基本等值式，
+我们并没有全都证明。
+
+（1）用真值表的方法来验证定理\ref{prop-dengzhi-gongshi-2}
+当中的分配律、吸收律、德摩根律；
+
+（2）用真值表的方法来验证定理
+\ref{prop-dengzhi-gongshi-3}当中的蕴含律、等价律。
+\end{prob}\vs
+
+\begin{prob}对于命题公式$P_1,...,P_n$，
+用相应的定义直接证明：
+
+（1）$P_1\wedge P_2\wedge...\wedge P_n$是重言式，
+当且仅当每一个$P_i(1\leq i\leq n)$都是重言式。
+
+（2）$P_1\vee P_2\vee...\vee P_n$是矛盾式，
+当且仅当每一个$P_i(1\leq i\leq n)$都是矛盾式。
+\end{prob}\vs
+
+\begin{prob}接上一题，对于$n$个命题公式$P_1,...,P_n$，
+$P_1\wedge P_2\wedge...\wedge P_n$是可满足式，
+当且仅当每一个$P_i(1\leq i\leq n)$都是可满足式。
+
+上述说法是否正确？如果再把“$\wedge$”改成“$\vee$”呢？
+\end{prob}\vs
+
+\begin{prob}[关于等值演算的置换规则]
+回顾定理\ref{等值演算的置换规则}
+等值演算的置换规则。我们在等值演算的过程中
+是如何“偷偷地”使用置换规则的？
+
+具体地，考虑
+定理\ref{prop-dengzhi-gongshi-3}
+当中的归谬论（16）的证明过程，
+试详细说明等值演算的哪一步使用了置换规则；
+如果使用了置换规则，试写出相应的“$\Phi$”的具体表达式。
+\end{prob}\vs
+
+\begin{prob}对于命题公式$P,Q,R$,试证明：
+
+（1）$P\Rightarrow Q$并且$P\Rightarrow R$，
+当且仅当$P\Rightarrow(Q\wedge R)$.
+
+（2）$P\Rightarrow R$并且$Q\Rightarrow R$，
+当且仅当$(P\vee Q)\Rightarrow R$.
+
+（3）特别地，如果$P\Rightarrow Q$，那么必有
+$P\Rightarrow(P\wedge Q)$，也必有
+$(P\vee Q)\Rightarrow Q$.
+
+（4）将以上结果推广到多个命题公式的情形。
+\end{prob}\vs
+
+\begin{prob}[循环论证]
+对于$n$个命题公式$P_1,...P_n$，
+如果成立$P_1\Rightarrow P_2\,,\,P_2\Rightarrow P_3\,,\,...,
+P_{n-1}\Rightarrow P_n$，以及$P_n\Rightarrow P_1$，那么必有
+$$P_1\Leftrightarrow P_2
+\Leftrightarrow...\Leftrightarrow P_n$$
+\end{prob}\vs
+
+\begin{prob}[基本推理定律的验证]
+回顾定理\ref{9条推理定律}中的9条推理定律，
+试用等值演算的方法来证明
+其中的（4）（5）（7）（8）（9）.
+\end{prob}\vs
+
+\begin{prob}[真值表法的尝试]
+试使用真值表法来证明定理\ref{逻辑蕴含的置换规则}
+逻辑蕴含的置换规则。务必详细地把真值表列出来。
+\end{prob}\vs
+
+\begin{prob}[逻辑蕴含的置换规则的使用]
+回顾定理\ref{逻辑蕴含的置换规则}。
+具体在定理\ref{9条推理定律}当中的
+（7）（8）（9）的推理演算证明过程中，
+逻辑蕴含的置换规则是如何被使用的？
+\end{prob}\vs
+
+\begin{prob}试举反例说明，对于命题公式$P,Q$，
+$P\Rightarrow Q$并不意味着$\neg P\Rightarrow \neg Q$.
+\end{prob}\vs
+
+\begin{prob}[二难推理简单版本]
+直接用推理演算的方法证明定理\ref{二难推理简单版本}.
+\end{prob}\vs
+
+
