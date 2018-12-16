@@ -1,4 +1,5 @@
-\documentclass[a4paper, 11pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\documentclass[a4paper, 11pt]{book}
+% Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
 
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
 \usepackage{graphicx} % Required for including pictures
@@ -13,6 +14,12 @@
 \usepackage{tkz-graph}
 \usepackage[all,pdf]{xy}
 \usepackage{ctex}  %支持中文
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{framed}
+\usepackage{tcolorbox}
+
+
 
 %\usepackage[BoldFont,SlantFont,CJKchecksingle,CJKnumber]{xeCJK} %设置中文
 %\setCJKmainfont{SimHei} %黑体
@@ -80,16 +87,16 @@
 
 %%%%%%%%%%%%%%定理环境%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtheorem{thm}{定理}[subsection]
-\newtheorem{lemma}{引理}[subsection]
-\newtheorem{prop}{性质}[subsection]
-\newtheorem{definition}{定义}[subsection]
-\newtheorem{example}{例子}[subsection]
-\newtheorem{rem}{注记}[subsection]
-\newtheorem{cor}{推论}[subsection]
-\newtheorem{claim}{断言}[subsection]
-\newtheorem{intro}{导引}[subsection]
-\newtheorem{prob}{习题}[subsection]
+\newtheorem{thm}{定理}[section]
+\newtheorem{lemma}{引理}[section]
+\newtheorem{prop}{性质}[section]
+\newtheorem{definition}{定义}[section]
+\newtheorem{example}{例子}[section]
+\newtheorem{rem}{注记}[section]
+\newtheorem{cor}{推论}[section]
+\newtheorem{claim}{断言}[section]
+\newtheorem{intro}{导引}[section]
+\newtheorem{prob}{习题}[section]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,10 +104,14 @@
 \linespread{1.2} % Change line spacing here, Palatino benefits from a slight increase by default
 
 \makeatletter
-%\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
-\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+%\renewcommand\@biblabel[1]{\textbf{#1.}} 
+% Change the square brackets for each bibliography item from '[1]' to '1.'
 
-\renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
+\renewcommand{\@listI}{\itemsep=0pt} 
+% Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ 
+% Customize the title - do not edit title and author name here, see the TITLE block below
 \begin{center} % Right align 可以换成 “flushleft”
 {\Huge\@title} % Increase the font size of the title
 
@@ -112,6 +123,31 @@
 \vspace{20pt} % Some vertical space between the author block and abstract
 \end{center}
 }
+
+
+\definecolor{shadecolor}{RGB}{237,255,224}
+
+
+%\renewcommand{\abstractname}{摘要}
+% Uncomment to change the name of the abstract to something else
+
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\proofname}{证明}
+
+\titleformat{\chapter}
+  {\color{blue}
+    \huge\bfseries}
+  {第\,\thechapter\,章}
+{1em}{}
+
+\newcommand{\mchapter}[1]{
+  \begin{shaded}
+    \chapter{#1}
+  \end{shaded}
+} 
+
+
 
 
 \title{\textbf{曲豆豆的高等数学入门教程}\\$\,$\\% Title
@@ -128,45 +164,42 @@
 
 \maketitle
 
-%\renewcommand{\abstractname}{摘要} % Uncomment to change the name of the abstract to something else
+%\begin{abstract}
+%本讲义作为面向非数学专业者的入门，
+%介绍近代数学的四大基本结构：
+%序结构、代数结构、拓扑结构、测度结构，
+%以及近代数学的表达、思考方式。
+%\end{abstract}
 
-\begin{abstract}
-本讲义作为面向非数学专业者的入门，
-介绍近代数学的四大基本结构：
-序结构、代数结构、拓扑结构、测度结构，
-以及近代数学的表达、思考方式。
-\end{abstract}
+\include{preface}
 
 \tableofcontents
-\newpage
-\include{preface}
-\newpage
 
 \include{chapter/Ch1}
 \include{Chapter/Ch2}
 
-\section{二元关系（待补）}
-\subsection{关系的运算与性质（待补）}
-\subsection{等价关系与等价类（待补）}
-\subsection{偏序关系（待补）}
-\subsection{Zorn引理与良序原理（待补）}
-\section{代数结构基础（待补）}
-\section{实数的完备性（待补）}
-\section{连续函数（待补）}
-\section{一元微分学（待补）}
-\section{黎曼积分（待补）}
-\section{线性空间（待补）}
-\section{$n$维欧氏空间的拓扑（待补）}
-\section{$n$维欧氏空间的Lebesgue测度（待补）}
-\section{线性赋范空间基础（待补）}
-\section{附录：一些重要的初等数学（待补）}
-\subsection{求和符号与求积符号（待补）}
-\subsection{整数与多项式基础（待补）}
-\subsection{常用不等式（待补）}
-\subsection{排列、组合与二项式定理（待补）}
-\subsection{基本初等函数(待补)}
-\subsection{极坐标与参数方程（待补）}
-\subsection{复数的代数运算（待补）}
+\mchapter{二元关系（待补）}
+\section{关系的运算与性质（待补）}
+\section{等价关系与等价类（待补）}
+\section{偏序关系（待补）}
+\section{Zorn引理与良序原理（待补）}
+\mchapter{代数结构基础（待补）}
+\mchapter{实数的完备性（待补）}
+\mchapter{连续函数（待补）}
+\mchapter{一元微分学（待补）}
+\mchapter{黎曼积分（待补）}
+\mchapter{线性空间（待补）}
+\mchapter{$n$维欧氏空间的拓扑（待补）}
+\mchapter{$n$维欧氏空间的Lebesgue测度（待补）}
+\mchapter{线性赋范空间基础（待补）}
+\mchapter{附录：一些重要的初等数学（待补）}
+\section{求和符号与求积符号（待补）}
+\section{整数与多项式基础（待补）}
+\section{常用不等式（待补）}
+\section{排列、组合与二项式定理（待补）}
+\section{基本初等函数(待补)}
+\section{极坐标与参数方程（待补）}
+\section{复数的代数运算（待补）}
 
 \bibliographystyle{unsrt}
 \nocite{*}
