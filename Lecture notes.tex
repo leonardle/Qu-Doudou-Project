@@ -18,14 +18,7 @@
 \usepackage{color}
 \usepackage{framed}
 \usepackage{tcolorbox}
-
-
-
-%\usepackage[BoldFont,SlantFont,CJKchecksingle,CJKnumber]{xeCJK} %设置中文
-%\setCJKmainfont{SimHei} %黑体
-%\setCJKmonofont{Monaco} %设置缺省中文字体
-%\usepackage{CJK}
-
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%交换图示例%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -76,7 +69,6 @@
 \newcommand*{\Example}{\textit{Example}}
 
 \newcommand*{\R}{\mathbb{R}}
-\newcommand*{\C}{\mathbb{C}}
 \newcommand*{\p}{\partial}
 \newcommand*{\ten}{\otimes}
 
@@ -104,13 +96,13 @@
 \linespread{1.2} % Change line spacing here, Palatino benefits from a slight increase by default
 
 \makeatletter
-%\renewcommand\@biblabel[1]{\textbf{#1.}} 
+%\renewcommand\@biblabel[1]{\textbf{#1.}}
 % Change the square brackets for each bibliography item from '[1]' to '1.'
 
-\renewcommand{\@listI}{\itemsep=0pt} 
+\renewcommand{\@listI}{\itemsep=0pt}
 % Reduce the space between items in the itemize and enumerate environments and the bibliography
 
-\renewcommand{\maketitle}{ 
+\renewcommand{\maketitle}{
 % Customize the title - do not edit title and author name here, see the TITLE block below
 \begin{center} % Right align 可以换成 “flushleft”
 {\Huge\@title} % Increase the font size of the title
@@ -145,7 +137,7 @@
   \begin{shaded}
     \chapter{#1}
   \end{shaded}
-} 
+}
 
 
 
@@ -156,8 +148,8 @@
 \author{\textsc{曲豆豆\,\,\,主编} % Author
 \\{\textit{豆瓣研究生小组\,\,\,\,\,荣誉出品}}} % Institution
 
-\date{2018年12月15日\\
-第02-5.3稿} % Date
+\date{2018年12月17日\\
+第03-0.0稿} % Date
 
 %----------------------------------------------------------------------------------------
 \begin{document}
