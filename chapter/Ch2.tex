@@ -1,6 +1,7 @@
 \mchapter{朴素集合论}
 
 \section{集合的概念与基本例子（待改）}
+
 \begin{definition}
 集合的概念不可言说，不言自明，无须定义。谓词$\in$（读作“属于”）也不可言说。两个集合的相等，也无需定义。
 \end{definition}
@@ -123,6 +124,9 @@ $$(-\infty,a]:=\{x\in\mathbb{R}|x\leq a\}$$
 
 比较显然的一点是，对于集合$A$，$A$是无限集当且仅当对任何正整数$n$，
 存在$A$的一个含有$n$个元素的子集。
+
+\fengexian
+ 
 
 \section{集合的基本运算（待改）}
 
@@ -247,6 +251,66 @@ $$......$$
 
 我们不再继续深究自然数公理。
 
+\fengexian
+
+\begin{prob}验证性质\ref{set-fenpeilv}与性质\ref{set-morgen}.
+\end{prob}\vs
+
+\begin{prob}对于集合$A,B$，证明以下三个命题是互相等价的：
+
+(1)$A\subseteq B$
+
+(2)$A\cap B=A$
+
+(3)$A\cup B=B$
+
+(4)$A-B=\varnothing$
+\end{prob}\vs
+
+\begin{prob}对于集合$A,B,C$，证明：
+
+(1) $(A\subseteq C)\wedge(B\subseteq C)\Leftrightarrow A\cup B\subseteq C$
+
+(2) $(C\subseteq A)\wedge(C\subseteq C)\Leftrightarrow C\subseteq A\cap B$
+\end{prob}\vs
+
+\begin{prob}[元素的个数]
+设集合$A$为有限集（即，只含有有限多个元素），我们用$|A|$来表示集合$A$中元素的个数。
+例如当$A=\{2,7,8\}$时,有$|A|=3$.现在，假设$A,B$都是有限集，证明以下结论：
+
+(1)$|2^A|=2^{|A|}$
+
+(2)$|A\times B|=|A|\times|B|$
+
+(3)$|A\cup B|=|A|+|B|-|A\cap B|$
+\end{prob}\vs
+
+\begin{prob}对于非空集合$X,Y,X',Y'$，证明：
+
+(1) $X\times Y\subseteq X'\times Y' \Leftrightarrow (X\subseteq X')\wedge(Y\subseteq Y')$
+
+(2) $(X\times Y)\cup(X'\times Y)=(X\cup X')\times Y$
+
+(3) $X\times Y\cap X'\times Y'=(X\cap X')\times(Y\cap Y')$
+\end{prob}\vs
+
+\begin{prob} 对于集合$A,B$,
+
+(1)证明： $(A\subseteq B)\Leftrightarrow (2^A\subseteq 2^B)$
+
+(2)当$A,B$非空时，是否一定成立$2^{A\times B}=2^A\times2^B$？
+
+(2)直接写出集合$2^{\{\varnothing,\{\varnothing\}\}}$的所有元素。
+
+\end{prob}\vs
+
+\begin{prob}对于集合$A,B$,
+
+(1)何时成立$\{A\cup B\}=\{A\}\cup\{B\}$？
+
+(2)何时成立$(A,B)=(B,A)$？
+\end{prob}\vs
+
 \section{集合列与集合族（待补）}
 本节我们继续介绍集合运算。
 \begin{definition}[集合族]
@@ -296,77 +360,7 @@ $$\bigcup_{n=1}^\infty A_n=\mathbb{R}$$
 \section{集合的势（待补）}
 \section{可数集（待补）}
 \section{选择公理与集合论ZFC公理体系简介（待补）}
-\section{习题A：逻辑、集合运算}
-
-\begin{prob}验证性质\ref{set-fenpeilv}与性质\ref{set-morgen}.
-\end{prob}\vs
-
-\begin{prob}对于集合$A,B$，证明以下三个命题是互相等价的：
-
-(1)$A\subseteq B$
-
-(2)$A\cap B=A$
-
-(3)$A\cup B=B$.
-\end{prob}
-\vs
-
-\begin{prob}对于集合$A,B,C$，证明：
-
-(1) $(A\subseteq C)\wedge(B\subseteq C)\Leftrightarrow A\cup B\subseteq C$
-
-(2) $(C\subseteq A)\wedge(C\subseteq C)\Leftrightarrow C\subseteq A\cap B$
-\end{prob}\vs
-
-\begin{prob}[元素的个数]
-设集合$A$为有限集（即，只含有有限多个元素），我们用$|A|$来表示集合$A$中元素的个数。
-例如当$A=\{2,7,8\}$时,有$|A|=3$.现在，假设$A,B$都是有限集，证明以下结论：
-
-(1)$|2^A|=2^{|A|}$
-
-(2)$|A\times B|=|A|\times|B|$
-
-(3)$|A\cup B|=|A|+|B|-|A\cap B|$
-\end{prob}\vs
-
-
-\begin{prob}对于实数$a,b$，证明以下命题：
-
-(1) $(a\geq b)\Leftrightarrow(\forall\varepsilon>0,a>b-\varepsilon)$
-
-(2) $(a=b)\Leftrightarrow(\forall\varepsilon>0,|a-b|<\varepsilon)$
-
-(3) $(a>b)\Leftrightarrow(\exists\varepsilon>0,a>b+\varepsilon)$
-
-\end{prob}
-
-(Hint:这里默认$\varepsilon$取值于实数$\mathbb{R}$.)\vs
-
-\begin{prob}对于非空集合$X,Y,X',Y'$，证明：
-
-(1) $X\times Y\subseteq X'\times Y' \Leftrightarrow (X\subseteq X')\wedge(Y\subseteq Y')$
-
-(2) $(X\times Y)\cup(X'\times Y)=(X\cup X')\times Y$
-
-(3) $X\times Y\cap X'\times Y'=(X\cap X')\times(Y\cap Y')$
-\end{prob}\vs
-
-\begin{prob} 对于集合$A,B$,
-
-(1)证明： $(A\subseteq B)\Leftrightarrow (2^A\subseteq 2^B)$
-
-(2)当$A,B$非空时，是否一定成立$2^{A\times B}=2^A\times2^B$？
-
-(2)直接写出集合$2^{\{\varnothing,\{\varnothing\}\}}$的所有元素。
-
-\end{prob}\vs
-
-\begin{prob}对于集合$A,B$,
-
-(1)何时成立$\{A\cup B\}=\{A\}\cup\{B\}$？
-
-(2)何时成立$(A,B)=(B,A)$？
-\end{prob}\vs
+\section{附加习题}
 
 \begin{prob}[集合的对称差]
 

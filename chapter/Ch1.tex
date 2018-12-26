@@ -23,7 +23,8 @@
 
 \section{命题与连接词}
 
-\textbf{命题}是数理逻辑中的一个基本概念。
+\textbf{命题}(proposition)\index{proposition\kong 命题}
+是数理逻辑中的一个基本概念。
 能够判断真假，非真即假的陈述句称为命题。
 
 \begin{example}下列语句之中，
@@ -41,6 +42,7 @@
 
 （6）这句话是假话。\label{examples of propositions}
 \end{example}
+
 \begin{proof}[Solution]
 （1）（2）（3）都是可以判断真假的陈述句，
 从而是命题，虽然（2）陈述的事实是荒谬的。
@@ -50,26 +52,33 @@
 （4）（5）都不是陈述句，从而不是命题。
 而（6）虽然是陈述句，但它的真假不确定，
 假设它为真则推出它为假，由它为假又能推出它为真。
-这种既不能为真也不能为假的陈述句，称为\textbf{悖论}。悖论不是命题。
+这种既不能为真也不能为假的陈述句，
+称为\textbf{悖论}(paradox)。
+悖论不是命题。\index{paradox\kong 悖论}
 \end{proof}
 
 关于命题（3），与它类似的我们目前还没有能力判断真假的命题
-有很多，比如著名的\textbf{哥德巴赫猜想}
+有很多，比如著名的\textbf{哥德巴赫猜想}(Goldbach's conjecture)
+\index{Goldbach's conjecture\kong 哥德巴赫猜想}
 “任何大于$4$的偶数都可以表示为两个素数的和”，
 以及众多我们暂时没解决的数学猜想。\vsp
 
 我们用小写拉丁字母，如$a,b,c,p,q,r$等，来表示命题。
 如果一个命题为真，则称它为\textbf{真命题}，
-也称它的\textbf{真值}为1；若它为假，
-则称此命题为\textbf{假命题}，也称它的真值为0.\vsp
+也称它的\textbf{真值}(truth value)为1；若它为假，
+则称此命题为\textbf{假命题}，也称它的真值为0.
+\index{truth value\kong 真值}\vsp
 
-对于已经给定的一些命题，我们可以对这些命题进行一些操作，
-来构造新的命题。接下来介绍常见的几种命题连接词。
-
+对于已经给定的一些命题，
+我们可以对这些命题进行一些操作，
+来构造新的命题。接下来介绍常见的几种
+\textbf{命题连接词}(propositional connectives)。
+\index{propositional connective\kong 命题连接词}
 
 \begin{definition}[否定连接词]
 对于命题$p$,称命题$\neg p$为$p$的\textbf{否定式}，
-符号“$\neg$”称为否定连接词，读作“\textbf{非}”。
+符号“$\neg$”称为\textbf{否定}(negation)
+连接词，读作“\textbf{非}”。\index{negation\kong 否定}
 规定当$p$为真时，$\neg p$为假；$p$为假时$\neg p$为真。
 \end{definition}
 
@@ -80,7 +89,8 @@
 \begin{definition}[合取连接词]
 对于两个命题$p,q$，称命题
 “$p\wedge q$”为$p$与$q$的\textbf{合取式}，
-符号“$\wedge$”称为合取连接词，读作“\textbf{且}”。
+符号“$\wedge$”称为\textbf{合取}(conjunction)
+连接词，读作“\textbf{且}”。\index{conjunction\kong 合取}
 规定当$p,q$全都是为真命题时，$p\wedge q$为真命题；
 当$p,q$之中至少有一个是假命题时，$p\wedge q$为假命题。
 \end{definition}
@@ -95,7 +105,8 @@
 \begin{definition}[析取连接词]
 对于两个命题$p,q$，
 称命题“$p\vee q$”为$p$与$q$的\textbf{析取式}，
-符号“$\vee$”称为析取连接词，读作“\textbf{或}”。
+符号“$\vee$”称为\textbf{析取}(disjunction)
+连接词，读作“\textbf{或}”。\index{disjunction\kong 析取}
 规定当$p,q$全都是为假命题时，$p\vee q$为假命题；
 当$p,q$之中至少有一个是真命题时，$p\vee q$为真命题。
 \end{definition}
@@ -107,7 +118,9 @@
 “或者”指的是两者至少有一个成立就可以（两者都成立那更好）。
 
 \begin{definition}[蕴含连接词]
-对于两个命题$p,q$，称命题“$p\rightarrow q$”为$p$与$q$的\textbf{蕴含式}，
+对于两个命题$p,q$，称命题“$p\rightarrow q$”
+为$p$与$q$的\textbf{蕴含式}(implication)，
+\index{implication\kong 蕴含}
 符号“$\rightarrow$”称为蕴含连接词，读作“\textbf{蕴含}”。
 规定当$p$为真命题并且$q$为假命题时，$p\rightarrow q$为假命题；
 而其余3种情况时$p\rightarrow q$为真命题。
@@ -118,9 +131,11 @@
 “如果$p$那么$q$”，“$p$仅当$q$”，“$p$推出$q$”，
 “因为$p$所以$q$”，“只要$p$就有$q$”，
 “只有$q$才会有$p$”，“除非$q$否则$p$”、
-“$p$是$q$的\textbf{充分条件}”，
-“$q$是$p$的\textbf{必要条件}”等
+“$p$是$q$的\textbf{充分条件}(sufficient condition)”，
+“$q$是$p$的\textbf{必要条件}(necessary condition)”等
 看似迥异的表述方式。
+\index{sufficient condition\kong 充分条件}
+\index{necessary condition\kong 必要条件}
 
 上述诸多表达方式在数理逻辑中其实表达的都是“蕴含”的含义，
 这需要慢慢体会。
@@ -143,21 +158,29 @@
 \begin{proof}
 我们依次来分析这些命题：
 
-(1)我们用字母$p$来表示“所有人都吃过屎”，用$q$来表示“地球围绕太阳公转”。
-则命题（1）用符号表达为“$p\rightarrow q$”.由于$p$是假命题，$q$是真命题，
-所以根据蕴含连接词"$\rightarrow$"的定义可知$p\rightarrow q$为真命题。
+(1)我们用字母$p$来表示“所有人都吃过屎”，
+用$q$来表示“地球围绕太阳公转”。
+则命题（1）用符号表达为“$p\rightarrow q$”.
+由于$p$是假命题，$q$是真命题，
+所以根据蕴含连接词"$\rightarrow$"
+的定义可知$p\rightarrow q$为真命题。
 
 (2)该命题为“$(1+1=3)\rightarrow\text{猪会飞}$”。
-由于“1+1=3”是假命题，“猪会飞”也是假命题，从而命题（2）是真命题。
+由于“1+1=3”是假命题，“猪会飞”也是假命题，
+从而命题（2）是真命题。
 
 (3)该命题为“大海亲吻鲨鱼$\rightarrow$沙漠下暴雨”，
 蕴含连接词的前后两端都是假命题，从而这个命题是真命题。
 
-(4)该命题为“2是奇数$\rightarrow$公元2333年元旦的北京是晴天”。
-我们知道“2是奇数”是假命题。虽然我们并没有能力判断公元2333年那件事的真假，
+(4)该命题为“2是奇数
+$\rightarrow$公元2333年元旦的北京是晴天”。
+我们知道“2是奇数”是假命题。
+虽然我们并没有能力判断公元2333年那件事的真假，
 但是从蕴含连接词的定义可以看出，
-对于一个由蕴含连接词连接的复合命题$p\rightarrow q$，只要$p$是假命题，
-那么无论$q$是真是假，$p\rightarrow q$一定是真命题。从而命题（4）是真命题。
+对于一个由蕴含连接词连接的复合命题
+$p\rightarrow q$，只要$p$是假命题，
+那么无论$q$是真是假，$p\rightarrow q$
+一定是真命题。从而命题（4）是真命题。
 \end{proof}
 
 要特别注意，在日常生活的自然语言中，
@@ -179,6 +202,7 @@ $p$与$q$之间可以毫无任何联系。
 试将命题“如果甲输，那么甲给乙100块钱”符号化，
 并讨论该命题何时为假命题。
 \end{example}
+
 \begin{proof}[Solution]
 此命题为“甲输$\rightarrow$甲给乙100块钱”。
 只有当甲输了但是甲没给乙100块钱时，
@@ -227,14 +251,16 @@ p\wedge(\neg p)\,\,\,,\,\,\,
 规定当$p,q$真值相同时$p\leftrightarrow q$为真命题；
 真值相反时$p\leftrightarrow q$为假命题。
 \end{definition}
-在自然语言以及数学中，常用“$p$\textbf{当且仅当}$q$”、
-“$p$是$q$的\textbf{充要条件}”、
-“$p$ \textbf{if and only if} $q$”
-来表达命题“$p\leftrightarrow q$”.\vsp
+在自然语言以及数学中，常用\index{if and only if\kong 当且仅当}
+“$p$\textbf{当且仅当}(if and only if)$q$”、
+“$p$是$q$的\textbf{充要条件}(necessary and sufficient condition)”
+来表达命题“$p\leftrightarrow q$”.
+\index{necessary and sufficient condition\kong 充要条件}\vsp
 
 以上是常见的五种逻辑连接词。
 我们将由连接词组成的复合命题的真假性
-总结为如下\textbf{真值表}：
+总结为如下\textbf{真值表}(truth table)：
+\index{truth table\kong 真值表}
 
 $$\begin{tabular}{|c||c|c|c|c|c|}
 \hline
@@ -291,7 +317,10 @@ $x^2+1$是一个公式，我们给$x$赋以特定的值，
 需要依靠事先约定以及语境来判断。\vs
 
 而命题逻辑与之完全类似。我们用字母来表示一个命题。
-命题也有\textbf{命题常量}与\textbf{命题变量}之分。
+命题也有\textbf{命题常量}(proposition constant)
+\index{proposition constant\kong 命题常量}
+与\textbf{命题变量}(propositional variable)之分。
+\index{propositional variable\kong 命题变量}
 前者为某个确定的命题，而后者是一个抽象的符号，
 可以被赋以确定的命题。
 
@@ -413,13 +442,16 @@ $$2(x+2y)\,\,\,\,,\,\,\,\,2x+4y$$
 \begin{definition}[命题公式的分类]
 对于含有$n$个$(n\geq0)$命题变量的命题公式$A=A(p_1,...,p_n)$，
 
-（1）称$A$为\textbf{重言式}（或者\textbf{永真式}），
+（1）称$A$为\textbf{重言式}(tautology)
+（或者\textbf{永真式}）\index{tautology\kong 重言式}，
 如果在$A$的任何赋值下，$A$的结果都为真；
 
-（2）称$A$为\textbf{矛盾式}（或者\textbf{永假式}），
+（2）称$A$为\textbf{矛盾式}(contradictory)
+（或者\textbf{永假式}），\index{contradictory\kong 矛盾式}
 如果在$A$的任何赋值下，$A$的结果都为假；
 
-（2）称$A$为\textbf{可满足式}，
+（2）称$A$为\textbf{可满足式}(contingency)，
+\index{contingency\kong 可满足式}
 如果存在$A$的某个赋值，使得$A$的结果为真；
 \end{definition}
 
@@ -440,7 +472,9 @@ $A$为矛盾式当且仅当$A$为假命题。\vs
 
 \begin{definition}[命题公式的等值]
 对于含有$n$个命题变量$p_1,...,p_n$的两个命题公式$A,B$，
-称$A$与$B$\textbf{等值}，如果在所有可能的$2^n$个赋值之下，它们的真值都相同。
+称$A$与$B$\textbf{等值}(logically equivalent)，
+\index{logically equivalent\kong 等值}
+如果在所有可能的$2^n$个赋值之下，它们的真值都相同。
 此时记作$A\Leftrightarrow B$.
 \end{definition}
 例如，例子\ref{proposition formula}
@@ -564,23 +598,34 @@ $p_1,...,p_n$都是命题公式“1”的哑元。
 接下来将介绍一些常见的命题公式
 （可以含有哑元）的等值式。
 
-\begin{thm}[基本的命题公式等值式I]\label{prop-dingzhi-gongshi-1}
+\begin{thm}[基本的命题公式等值式I]
+\label{prop-dingzhi-gongshi-1}
 设$A$为任意的命题公式，则下列成立：
 
 （1）零律：$$A\vee1\Leftrightarrow1$$
 $$A\wedge0\Leftrightarrow0$$
 
-（2）同一律：$$A\wedge1\Leftrightarrow A$$
+（2）同一律(law of identity)：
+\index{law of identity\kong 同一律}
+$$A\wedge1\Leftrightarrow A$$
 $$A\vee0\Leftrightarrow A$$
 
-（3）幂等律：$$A\Leftrightarrow A\vee A$$
+（3）幂等律(idempotent law)：
+\index{idempotent law\kong 幂等律}
+$$A\Leftrightarrow A\vee A$$
 $$A\Leftrightarrow A\wedge A$$
 
-（4）双重否定律：$$A\Leftrightarrow \neg(\neg A)$$
+（4）双重否定律(law of double negation 或者 involution law)：
+\index{law of double negation\kong 双重否定律}
+$$A\Leftrightarrow \neg(\neg A)$$
 
-（5）排中律：$$A\vee\neg A\Leftrightarrow1$$
+（5）排中律(law of the excluded middle)：
+$$A\vee\neg A\Leftrightarrow1$$
+\index{law of the excluded middle\kong 排中律}
 
-（6）矛盾律：$$A\wedge\neg A\Leftrightarrow0$$
+（6）矛盾律(law of contradiction)：
+\index{law of contradiction\kong 矛盾律}
+$$A\wedge\neg A\Leftrightarrow0$$
 
 \end{thm}
 \begin{proof}
@@ -607,21 +652,26 @@ $$(p\rightarrow q)\rightarrow r
 \begin{thm}[基本的命题公式等值式II]\label{prop-dengzhi-gongshi-2}
 对于任何命题公式$A,B,C$，则下列等值式成立：
 
-（7）交换律：$$A\wedge B\Leftrightarrow B\wedge A$$
+（7）交换律(commutative law)：
+$$A\wedge B\Leftrightarrow B\wedge A$$
 $$A\vee B\Leftrightarrow B\vee A$$
 
-（8）结合律：$$(A\wedge B)\wedge C\Leftrightarrow A\wedge (B\wedge C)$$
+（8）结合律(associative law)：
+$$(A\wedge B)\wedge C\Leftrightarrow A\wedge (B\wedge C)$$
 $$(A\vee B)\vee C\Leftrightarrow A\vee (B\vee C)$$
 
-（9）分配律：
+（9）分配律(distributive law)：
+\index{distributive law\kong 分配律}
 $$(A\wedge B)\vee C\Leftrightarrow (A\vee C)\wedge (B\vee C)$$
 $$(A\vee B)\wedge C\Leftrightarrow (A\wedge C)\vee (B\wedge C)$$
 
-（10）吸收律：
+（10）吸收律(absorption law)：
+\index{absorption law\kong 吸收律}
 $$A\vee (A\wedge B)\Leftrightarrow A$$
 $$A\wedge (A\vee B)\Leftrightarrow A$$
 
-（11）德摩根律：
+（11）德摩根律(De Morgan's law)：
+\index{De Morgan's law\kong 德摩根律}
 $$\neg(A\vee B)\Leftrightarrow\neg A\wedge\neg B$$
 $$\neg(A\wedge B)\Leftrightarrow\neg A\vee\neg B$$
 
@@ -666,7 +716,8 @@ $1\,\,1\,\,1$ & 1 & 1 & 1 & 1  \\
 
 关于等价、蕴含连接词，还有如下等值式：
 
-\begin{thm}[基本的命题公式等值式III]\label{prop-dengzhi-gongshi-3}
+\begin{thm}[基本的命题公式等值式III]
+\label{prop-dengzhi-gongshi-3}
 设$A,B$为任意的命题公式，则成立下列命题公式等值式：
 
 （12）蕴含律：
@@ -675,7 +726,8 @@ $$A\rightarrow B\Leftrightarrow\neg A\vee B$$
 （13）等价律：
 $$A\leftrightarrow B\Leftrightarrow (A\rightarrow B)\vee(B\rightarrow A)$$
 
-（14）假言易位：
+（14）假言易位(law of the contrapositive)：
+\index{law of the contrapositive\kong 假言易位}
 $$A\rightarrow B\Leftrightarrow\neg B\rightarrow\neg A$$
 
 （15）等价否定：
@@ -743,17 +795,21 @@ $\neg A$ &\text{（吸收律）}\\
 \end{proof}
 
 像这样来通过已知的等值式（运算律）
-来得到新的等值式的方式被称为\textbf{等值演算}。
+来得到新的等值式的方式被称为\textbf{等值演算}
+(propositional calculus)。
+\index{propositional calculus\kong 等值演算}
 
 其实，在上述等值演算的过程中，
 我们“偷偷地”使用了以下重要规则：
 
-\begin{thm}[等值演算的置换规则]
+\begin{thm}[等值演算的置换规则replacement rule]
+\index{replacement rule\kong 置换规则}
 设$\Phi(A)$是含有命题公式$A$的命题公式，$B$是另一个命题公式。
 如果$A\Leftrightarrow B$，那么必有$\Phi(A)\Leftrightarrow\Phi(B)$.
 \label{等值演算的置换规则}
 \end{thm}
-这个道理几乎是显然的，由等值“$\Leftrightarrow$”的定义容易得到。
+这个道理几乎是显然的，
+由等值“$\Leftrightarrow$”的定义容易得到。
 我们在定理\ref{prop-dengzhi-gongshi-3}的（14）-（16）
 的证明过程中已经使用了置换规则。
 此规则是等值演算的基础。
@@ -937,8 +993,8 @@ $\neg p\rightarrow q$&\text{是假命题}\\
 (1)$A$为假命题\\
 (2)$A$与$B$都为真命题
 \end{tabular}
-，则称$A$\textbf{逻辑蕴含}$B$，
-记作$A\Rightarrow B$.
+，则称$A$\textbf{逻辑蕴含}(logically imply)$B$，
+记作$A\Rightarrow B$.\index{logically imply\kong 逻辑蕴含}
 \end{definition}
 
 记号“$\Rightarrow$”与上一节出现的表示两个命题公式等值的
@@ -1016,6 +1072,7 @@ $\Leftrightarrow$&$1$\\
 早在亚里士多德时期就被提出。
 
 \begin{thm}[假言三段论]
+\index{hypothetical syllogism\kong 假言三段论}
 
 对于命题公式$P,Q,R$，则成立下述逻辑蕴含式：
 $$[(P\rightarrow Q)\wedge(Q\rightarrow R)]
@@ -1177,26 +1234,42 @@ $A\Rightarrow B$并不意味着$\neg A\Rightarrow \neg B$.
 \begin{thm}[常用的推理定律]
 对于任意命题公式$A,B,C,D$，成立以下:
 
-（1）（附加律）$$A\Rightarrow A\vee B$$
+（1）附加律(addition law)
+\index{addition law\kong 附加律}
+$$A\Rightarrow A\vee B$$
 
-（2）（化简律）$$A\wedge B\Rightarrow A$$
+（2）化简律(simplification law)
+\index{simplification law\kong 化简律}
+$$A\wedge B\Rightarrow A$$
 
-（3）（假言推理）$$(A\rightarrow B)\wedge A\Rightarrow B$$
+（3）假言推理(modus ponens)
+\index{modus ponens\kong 假言推理}
+$$(A\rightarrow B)\wedge A\Rightarrow B$$
 
-（4）（拒取式）$$(A\rightarrow B)\wedge \neg B\Rightarrow \neg A$$
+（4）拒取式(modus tollens)
+\index{modus tollens\kong 拒取式}
+$$(A\rightarrow B)\wedge \neg B\Rightarrow \neg A$$
 
-（5）（析取三段论）$$(A\vee B)\wedge\neg B\Rightarrow A$$
+（5）析取三段论(disjunctive syllogism)
+\index{disjunctive syllogism\kong 析取三段论}
+$$(A\vee B)\wedge\neg B\Rightarrow A$$
 
-（6）（假言三段论）$$(A\rightarrow B)\wedge(B\rightarrow C)
+（6）假言三段论(hypothetical syllogism)
+$$(A\rightarrow B)\wedge(B\rightarrow C)
 \Rightarrow(A\rightarrow C)$$
 
-（7）（等价三段论）$$(A\leftrightarrow B)\wedge(B\leftrightarrow C)
+（7）等价三段论
+$$(A\leftrightarrow B)\wedge(B\leftrightarrow C)
 \Rightarrow(A\leftrightarrow C)$$
 
-（8）（构造性二难）$$(A\rightarrow B)\wedge(C\rightarrow D)
+（8）构造性二难(constructive dilemma)
+\index{constructive dilemma\kong 构造性二难}
+$$(A\rightarrow B)\wedge(C\rightarrow D)
 \wedge(A\vee C)\Rightarrow(B\vee D)$$
 
-（9）（破坏性二难）$$(A\rightarrow B)\wedge(C\rightarrow D)
+（9）破坏性二难(destructive dilemma)
+\index{destructive dilemma\kong 破坏性二难}
+$$(A\rightarrow B)\wedge(C\rightarrow D)
 \wedge(\neg B\vee \neg D)\Rightarrow(\neg A\vee \neg C)$$
 \label{9条推理定律}
 \end{thm}
@@ -1381,8 +1454,13 @@ $$[p\leftrightarrow(\neg q\vee r)]
 对于有限个命题公式$P_1,P_2,...,P_n(n\geq 1)$以及$Q$，
 如果成立
 $$P_1\wedge P_2\wedge...\wedge P_n\Rightarrow Q$$
-则称由\textbf{条件}$P_1,P_2,...,P_n$
-推出\textbf{结论}$Q$的\textbf{推理}是\textbf{有效的}，
+则称由\textbf{条件}(premise)
+\index{premise\kong 条件}
+$P_1,P_2,...,P_n$
+推出\textbf{结论}(conclusion)
+\index{conclusion\kong 结论}
+$Q$的\textbf{推理}是\textbf{有效的}(valid)，
+\index{valid\kong 有效的（推理）}
 此时也记作
 $$\{P_1,...,P_n\}\models Q$$
 \end{definition}
@@ -1518,8 +1596,11 @@ $(P_1\wedge...\wedge P_n)\wedge\neg Q$为矛盾式。证毕。
 \section{构成命题的基本要素}
 在前三节，我们初步研究了命题之间的逻辑连接关系，及其推理法则。
 一个命题可以被认为是由若干简单的命题通过命题连接词组合而成，
-这些“简单的命题”被称作\textbf{原子命题}；
-而通过命题连接词连接若干原子命题所得到的命题被称为\textbf{复合命题}。
+这些“简单的命题”被称作\textbf{原子命题}(atomic proposition)；
+\index{atomic proposition\kong 原子命题}
+而通过命题连接词连接若干原子命题所得到的命题被称为
+\textbf{复合命题}(compound proposition)。
+\index{compound proposition\kong 复合命题}
 我们在此之前已经见过许许多多复合命题的例子了。
 
 类比于化学当中“原子”与“分子”的关系，我们在前三节研究的是
@@ -1540,16 +1621,22 @@ $\sqrt{2}$是个体，曲豆豆是个体，
 
 我们（至少在这本书中）习惯用小写拉丁字母
 $a,b,c,x,y,z...$来表示个体。
-用来代表个体的字母、符号称为\textbf{个体词}。
+用来代表个体的字母、符号称为\textbf{个体词}(individual)。
+\index{individual\kong 个体词}
 
 注意，用字母表示个体时，也有常量、变量之分。
-如果$x$代表某个给定、具体的个体，那么称$x$为\textbf{个体常量}；
+如果$x$代表某个给定、具体的个体，
+那么称$x$为\textbf{个体常量}(individual constant)；
+\index{individual constant\kong 个体常量}
 如果它代表的个体不确定，即抽象、泛指的个体，
-那么称它为\textbf{个体变量}。这个与初等数学中的“常量、变量”，
+那么称它为\textbf{个体变量}(individual variable)。
+\index{individual variable\kong 个体变量}
+这个与初等数学中的“常量、变量”，
 以及之前讲到的“命题常量、命题变量”十分类似。
 
 对于个体变量$x$，我们一般默认或者事先声明它的取值范围，
-该取值范围称之为\textbf{论域}
+该取值范围称之为\textbf{论域}(individual field)
+\index{individual field\kong 论域}
 （也称为\textbf{个体域}，俗称“讨论的范围”）。
 例如我们谈论“$x>0$”时，我们通常默认个体变量$x$的论域为全体实数；
 在谈论“$x$是曲豆豆的儿子”时，
@@ -1564,7 +1651,8 @@ $a,b,c,x,y,z...$来表示个体。
 称为\textbf{全总个体域}。
 
 \begin{definition}[谓词]用来刻画个体的性质以及个体之间
-相互关系的词称为\textbf{谓词}。
+相互关系的词称为\textbf{谓词}
+(predicate)\index{predicate\kong 谓词}。
 \end{definition}
 
 这也并不是严格的数学定义，仅仅是对不可定义、不言自明
@@ -1616,7 +1704,10 @@ $$H(5,8)\rightarrow H(4,6)$$
 \end{proof}
 
 我们用字母表示谓词时，
-也有\textbf{谓词常量}与\textbf{谓词变量}
+也有\textbf{谓词常量}(predicate constant)与
+\index{predicate constant\kong 谓词常量}
+\textbf{谓词变量}(predicate variable)
+\index{predicate variable\kong 谓词变量}
 的区别。指代具体的、事先给定的谓词时，为谓词常量；
 表示泛指、抽象的谓词时，为谓词变量。
 
@@ -1659,7 +1750,8 @@ $$(1>2)\vee(3>4)$$
 为此，除了个体词与谓词，我们还需要\textbf{量词}。
 
 \begin{definition}
-描述个体常量或者个体变量之间的数量关系的词称为\textbf{量词}。
+描述个体常量或者个体变量之间的数量关系的词称为
+\textbf{量词}(quantifier)。\index{quantifier\kong 量词}
 \end{definition}
 
 仍然不是一个数学定义。具体地，我们来看以下例子：
@@ -1677,7 +1769,7 @@ $$(1>2)\vee(3>4)$$
 考虑个体变量$x$，$x$的论域为地球上的所有人。
 则我们有谓词公式$F(x)$，我们可以给$x$赋值，得到命题。
 然而，“所有人都会死”这个命题并不是通过对$F(x)$之中的“$x$”
-赋值得到的，而是通过对个体变量$x$进行\textbf{量化}：
+赋值得到的，而是通过对个体变量$x$进行\textbf{量化}(quantify)：
 该命题记作：“任意$x$，$F(x)$”.“任意”这个词，是量词。
 
 （2）我们用$G$来代表1元谓词“$(...)^2+1=0$”，
@@ -1709,7 +1801,10 @@ $$(1>2)\vee(3>4)$$
 
 在今后的数学学习中，
 有两个最常见也是最重要的量词：
-\textbf{全称量词}“$\forall$”与\textbf{存在量词}“$\exists$”，
+\textbf{全称量词}(universal quantifier)“$\forall$”
+\index{universal quantifier\kong 全称量词}
+与\textbf{存在量词}(existential quantifier)“$\exists$”，
+\index{existential quantifier\kong 存在量词}
 它们分别读作“任意”与“存在”。“$\forall xF(x)$”的意思是，
 对于论域中的所有$x$，都成立$F(x)$；而
 “$\exists xF(x)$”的意思是，
@@ -2069,7 +2164,8 @@ $$\exists x,\exists y,
 
 \begin{prob}[异或连接词]对于两个命题变量$p,q$，
 我们通过以下真值表来定义两个命题的
-\textbf{异或}连接词“$\oplus$”：
+\textbf{异或}(exclusive OR)
+\index{exclusive OR\kong 异或}连接词“$\oplus$”：
 
 $$\begin{tabular}{|c||c|}
 \hline
@@ -2256,6 +2352,7 @@ $$(p\downarrow(q\oplus r))\uparrow(p\vee\neg q)$$
 更加一般化地思考问题。“下定义”是理论建立的基础。\vs
 
 \begin{prob}[完备连接词组]
+\index{adequate sets of connectives\kong 完备连接词组}
 接上题，对于给定的有限个逻辑连接词$\{f_1,...,f_n\}$，
 其中对于任意$1\leq k\leq n$，
 $f_k$是$d_k$元连接词$(d_k\geq 1)$.
@@ -2433,6 +2530,17 @@ $A$作为$A$-模是有限长的当且仅当$A$是Krull维数为0的诺特环。
 
 （4）$\exists x,\forall y,\forall z(x+y=z)$
 \end{prob}
+
+\begin{prob}[分析学基本原理]
+对于实数$a,b$，证明以下命题：
+
+(1) $(a\geq b)\Leftrightarrow(\forall\varepsilon>0,a>b-\varepsilon)$
+
+(2) $(a=b)\Leftrightarrow(\forall\varepsilon>0,|a-b|<\varepsilon)$
+
+(3) $(a>b)\Leftrightarrow(\exists\varepsilon>0,a>b+\varepsilon)$
+
+\end{prob}\vs
 
 
 
