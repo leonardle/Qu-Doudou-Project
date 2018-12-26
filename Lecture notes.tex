@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt]{book}
+\documentclass[oneside,b5papar,15pt]{book}
 % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
 
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
@@ -19,7 +19,10 @@
 \usepackage{framed}
 \usepackage{tcolorbox}
 \usepackage{hyperref}
-\usepackage{titlesec}
+\usepackage{makeidx}
+
+\makeindex
+
 
 
 
@@ -61,24 +64,18 @@
 \newcommand*{\vsp}{\vspace{10pt}}
 \newcommand*{\vspp}{\vspace{15pt}}
 \newcommand*{\kong}{$\,\,\,\,\,\,\,$}
-\newcommand*{\ad}{\text{ad}}
 
-%\newcommand*{\ad}{\text{ad}}
+\newcommand*{\ad}{\text{ad}}
 \newcommand*{\Der}{\text{Der}}
 \newcommand*{\ra}{\rightarrow}
-
-\newcommand*{\defn}{\textit{Definition}:}
-\newcommand*{\rmk}{\textit{Remark}:}
-\newcommand*{\Example}{\textit{Example}}
 
 \newcommand*{\R}{\mathbb{R}}
 \newcommand*{\p}{\partial}
 \newcommand*{\ten}{\otimes}
 
-\newcommand*{\kai}{\CJKfamily{kai}}
-\newcommand*{\hei}{\CJKfamily{hei}}
-\newcommand*{\fs}{\CJKfamily{fs}}
-\newcommand*{\song}{\CJKfamily{song}}
+\newcommand*{\fengexian}{
+  \rule[0pt]{14.3cm}{0.01em}
+\vs}
 
 %%%%%%%%%%%%%%定理环境%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -129,6 +126,7 @@
 \renewcommand{\bibname}{参考文献}
 \renewcommand{\contentsname}{目录}
 \renewcommand{\proofname}{证明}
+\renewcommand{\indexname}{术语索引}
 
 \titleformat{\chapter}
   {\color{blue}
@@ -152,11 +150,12 @@
 \\{\textit{豆瓣研究生小组\,\,\,\,\,荣誉出品}}} % Institution
 
 \date{\today\\
-第03-0.3稿}
+第03-1.0稿}
 
 %----------------------------------------------------------------------------------------
 \begin{document}
 
+\addcontentsline{toc}{chapter}{封面}
 \maketitle
 
 %\begin{abstract}
@@ -179,7 +178,7 @@
 
 \vspp
 
-\rule[0pt]{14.3cm}{0.01em}\vs
+\fengexian
 
 \begin{centering}
 本讲义由\LaTeX\ 排版，于GitHub开源\vsp
@@ -225,9 +224,12 @@
 \section{极坐标与参数方程（待补）}
 \section{复数的代数运算（待补）}
 
+
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{sample}
-
+\addcontentsline{toc}{chapter}{参考文献}
+\printindex
+\addcontentsline{toc}{chapter}{术语索引}
 \end{document}
 
