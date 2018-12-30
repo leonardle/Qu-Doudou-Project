@@ -53,7 +53,52 @@ $\rightarrow$实数理论。什么是自然数中的“0”，什么是“1”�
 \vspp
 \textbf{贡献者（豆瓣昵称，按拼音字母顺序排序）}
 
-（待补）
+曲豆豆，王有为，在云上，子坚
+
+\begin{centering}
+\newcounter{density}
+\setcounter{density}{0}
+\begin{tikzpicture}
+    \def\couleur{green}
+    \path[coordinate] (0,0)  coordinate(A)
+                ++( 144:6cm) coordinate(B)
+                ++(72:6cm) coordinate(C)
+                ++(0:6cm) coordinate(D)
+                ++(-72:6cm) coordinate(E)
+                                ;
+    \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- (E) --  cycle;
+    \foreach \x in {1,...,120}{%
+        \pgfmathsetcounter{density}{\thedensity+5}
+        \setcounter{density}{\thedensity}
+        \path[coordinate] coordinate(X) at (A){};
+        \path[coordinate] (A) -- (B) coordinate[pos=.05](A)
+                            -- (C) coordinate[pos=.05](B)
+                            -- (D) coordinate[pos=.05](C)
+                            -- (E) coordinate[pos=.05](D)
+                             -- (X) coordinate[pos=.05](E);
+        \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) --(E)  -- cycle;
+    }
+\end{tikzpicture}
+
+\end{centering}
+\begin{centering}
+
+\tikzstyle{level 1}=[sibling angle=120]
+\tikzstyle{level 2}=[sibling angle=60]
+\tikzstyle{level 3}=[sibling angle=30]
+\tikzstyle{every node}=[fill]
+\tikzstyle{edge from parent}=[snake=expanding waves,segment length=1mm,
+                              segment angle=10,draw]
+\begin{tikzpicture}[grow cyclic,shape=circle,very thick,level distance=13mm,
+                    cap=round]
+\node {} child [color=\A] foreach \A in {red,green,blue}
+    { node {} child [color=\A!50!\B] foreach \B in {red,green,blue}
+        { node {} child [color=\A!50!\B!50!\C] foreach \C in {black,gray,white}
+            { node {} }
+        }
+    };
+\end{tikzpicture}
+\end{centering}
 
 \newpage
 
@@ -166,4 +211,38 @@ $\rightarrow$实数理论。什么是自然数中的“0”，什么是“1”�
 很快，后继树下生成了所有正整数。。。
 
 \end{centering}
+\vspp
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8, line join=bevel]
+    \pgfmathsetmacro{\a}{2.5}
+    \pgfmathsetmacro{\b}{0.9}
+
+    \tikzset{%
+      apply style/.code     = {\tikzset{#1}},
+      triangle_edges/.style = {thick,draw=red!70}
+    }
+    \foreach \theta/\facestyle in {%
+        0/{triangle_edges, fill = yellow!40},
+      120/{triangle_edges, fill = gray!25},
+      240/{triangle_edges, fill = gray!90}%
+    }{
+      \begin{scope}[rotate=\theta]
+        \draw[apply style/.expand once=\facestyle]
+          ({-sqrt(3)/2*\a},{-0.5*\a})                     --
+          ++(-\b,0)                                       --
+            ({0.5*\b},{\a+3*sqrt(3)/2*\b})                -- % higher point	
+            ({sqrt(3)/2*\a+2.5*\b},{-.5*\a-sqrt(3)/2*\b}) -- % rightmost point
+          ++({-.5*\b},-{sqrt(3)/2*\b})                    -- % lower point
+            ({0.5*\b},{\a+sqrt(3)/2*\b})                  --
+          cycle;
+        \end{scope}
+      }	
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
 

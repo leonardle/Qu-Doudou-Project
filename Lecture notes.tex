@@ -16,10 +16,14 @@
 \usepackage{ctex}  %支持中文
 \usepackage{titlesec}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage{framed}
 \usepackage{tcolorbox}
 \usepackage{hyperref}
 \usepackage{makeidx}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix, calc, arrows}
+\usetikzlibrary{patterns,trees,snakes}
 
 \makeindex
 
@@ -63,7 +67,7 @@
 \newcommand*{\vs}{\vspace{5pt}}
 \newcommand*{\vsp}{\vspace{10pt}}
 \newcommand*{\vspp}{\vspace{15pt}}
-\newcommand*{\kong}{$\,\,\,\,\,\,\,$}
+\newcommand*{\kong}{$\,\,\,$}
 
 \newcommand*{\ad}{\text{ad}}
 \newcommand*{\Der}{\text{Der}}
@@ -90,7 +94,7 @@
 \newtheorem{intro}{导引}[section]
 \newtheorem{prob}{习题}[section]
 
-
+\DeclareMathOperator{\coker}{coker}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \linespread{1.2} % Change line spacing here, Palatino benefits from a slight increase by default
@@ -150,7 +154,7 @@
 \\{\textit{豆瓣研究生小组\,\,\,\,\,荣誉出品}}} % Institution
 
 \date{\today\\
-第03-1.0稿}
+第03-1.1稿}
 
 %----------------------------------------------------------------------------------------
 \begin{document}
@@ -175,7 +179,6 @@
 
 拍摄于2017.4.13 - 23：15
 \end{figure}
-
 \vspp
 
 \fengexian
@@ -230,6 +233,5 @@
 \bibliography{sample}
 \addcontentsline{toc}{chapter}{参考文献}
 \printindex
-\addcontentsline{toc}{chapter}{术语索引}
 \end{document}
 
