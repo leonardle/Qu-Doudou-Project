@@ -17,7 +17,7 @@
 （两个命题之间的逻辑连接词）符号化，比如：
 不但而且、虽然但是、因为所以、如果那么、只要就、只有才……等等；
 而在第4-6节，我们将分析一个命题的内部构造，
-将主体词、谓词、量词等“句子成分”也符号化。
+将个体词、谓词、量词等“句子成分”也符号化。
 最后在第7节，我们介绍在证明与整数有关的命题时常用的数学归纳法。
 
 
@@ -25,7 +25,7 @@
 
 \textbf{命题}(proposition)\index{proposition\kong 命题}
 是数理逻辑中的一个基本概念。
-能够判断真假，非真即假的陈述句称为命题。
+能够判断真(true)假(false)，非真即假的陈述句称为命题。
 
 \begin{example}下列语句之中，
 (1)-(3)都是命题，而(4)-(6)不是命题：
@@ -72,7 +72,7 @@
 对于已经给定的一些命题，
 我们可以对这些命题进行一些操作，
 来构造新的命题。接下来介绍常见的几种
-\textbf{命题连接词}(propositional connectives)。
+\textbf{命题连接词}(propositional connective 或者locial connective)。
 \index{propositional connective\kong 命题连接词}
 
 \begin{definition}[否定连接词]
@@ -246,8 +246,11 @@ p\wedge(\neg p)\,\,\,,\,\,\,
 \end{proof}
 
 \begin{definition}[等价连接词]
-对于两个命题$p,q$，称命题“$p\leftrightarrow q$”为$p$与$q$的\textbf{等价式}，
-符号“$\leftrightarrow$”称为等价连接词，读作“\textbf{等价于}”。
+对于两个命题$p,q$，称命题“$p\leftrightarrow q$”
+为$p$与$q$的\textbf{等价式}，
+符号“$\leftrightarrow$”称为\textbf{等价连接词}(biconditional connective)
+\index{biconditional connective\kong 等价连接词}，
+读作“\textbf{等价于}”。
 规定当$p,q$真值相同时$p\leftrightarrow q$为真命题；
 真值相反时$p\leftrightarrow q$为假命题。
 \end{definition}
@@ -1988,9 +1991,10 @@ $$\frac{1}{n}<\frac{1}{N}<
 \frac{1}{\frac{1}{\varepsilon}}=\varepsilon$$
 从而知（1）成立。\vs
 
-（2）也是真命题，证明如下：对于任意给定的$\varepsilon$与$n$，
+（2）也是真命题，证明如下：
+对于任意给定的$\varepsilon$与$n$，
 我们总可以取正整数$N$使得$N>n$，于是$n>N$为假，
-从而由蕴含连接词连接的命题
+从而蕴含式
 $$(n>N)\rightarrow(\frac{1}{n}<\varepsilon)$$
 自然为真。因此（2）为真命题。\vs
 
@@ -2110,7 +2114,66 @@ $$\exists x,\exists y,
 符号语言有时并不比自然语言简洁明了。在以后的学习中，
 我们在表意明确的前提下会采用尽量简洁的表述方式。
 
-\section{一阶逻辑的演算（待补）}
+\section{一阶逻辑的演算（正在更新）}
+
+本节开始，我们正是引入\textbf{一阶逻辑}(first order logic)
+\index{first order logic\kong 一阶逻辑}
+的概念，并且研究相应的演算、推理理论。
+
+\begin{definition}[函数与函数符号]
+设个体变量$x$的论域为$D$，则关于$x$的\textbf{函数}(function)$f$是指一个
+从$D$到$D$的对应。具体地，对于论域$D$中的任何对象$x$，都
+存在$D$中唯一的对象$f(x)$与之对应。
+\end{definition}
+
+这是一个无须定义、不言自明的概念，上述“定义”仅仅是描述性的说明。
+
+了解集合论的读者要特别注意，
+这里定义的“函数”并非集合论意义下的函数，
+集合论意义下的函数是这里定义的函数的特殊情形。
+（在下一章会详细解释）毕竟在这里，函数的“定义域”$D$并不一定是集合，
+可以是比集合要“大得多”的类。
+
+望（英）文生义，函数(function)可以被意淫为一台具有特定功能的机器，
+吃进去一个对象$x$，就会吐出一个被“加工”好的对象$f(x)$.
+
+我们习惯于小写拉丁字母$f,g,h...$来表示函数。
+
+\begin{example}
+将命题“甲的父亲比乙年龄大”符号化。
+\end{example}
+\begin{proof}[Solution]
+与之前类似，我们有多种符号化的方式。
+我们取论域为所有的人，
+在此举出其中几例：
+
+（1）令二元谓词$F(x,y)$为“$x$的年龄比$y$大”，
+令函数$f$为：$f(x)$表示$x$的父亲。
+则原命题被改写为
+$$F(f(\text{甲}),\text{乙})$$
+
+（2）我们也可以不用专门为了使用函数而使用函数。
+事实上，令二元谓词$F(x,y)$为“$x$的父亲比$y$年龄大”，则
+原命题被改写为$F(\text{甲},\text{乙})$.
+\end{proof}
+
+事实上对于论域分别为$D_1,D_2$的个体变量$x,y$，
+也可以谈论从$D_1$到$D_2$的函数；甚至也可以谈论多元函数。
+在此不再详细说明。\vs
+
+至此，在对命题进行符号化的过程中，我们引入了诸多符号：
+个体常量符号、个体变量符号、\textbf{函数}符号、
+谓词符号、量词符号、命题连接词，以及括号和逗号。
+
+\begin{definition}[逻辑符号与非逻辑符号]$\,$
+
+个体常量符号、函数符号、谓词符号统称\textbf{非逻辑符号}；
+
+个体变量符号、量词符号、命题连接词、
+括号和逗号统称\textbf{逻辑符号}。
+\end{definition}
+
+
 
 \section{一阶逻辑的推理（待补）}
 \section{数学归纳法（待补）}
@@ -2431,6 +2494,13 @@ $(P\vee Q)\Rightarrow Q$.
 P_{n-1}\Rightarrow P_n$，以及$P_n\Rightarrow P_1$，那么必有
 $$P_1\Leftrightarrow P_2
 \Leftrightarrow...\Leftrightarrow P_n$$
+\end{prob}\vs
+
+\begin{prob}对于命题公式$P,Q,R$,那么由
+$$(P\wedge Q)\Rightarrow R$$
+$$(Q\wedge R)\Rightarrow P$$
+$$(R\wedge P)\Rightarrow Q$$
+能否推出$P\Leftrightarrow Q\Leftrightarrow R$?
 \end{prob}\vs
 
 \begin{prob}[基本推理定律的验证]
