@@ -320,8 +320,8 @@ $x^2+1$是一个公式，我们给$x$赋以特定的值，
 需要依靠事先约定以及语境来判断。\vs
 
 而命题逻辑与之完全类似。我们用字母来表示一个命题。
-命题也有\textbf{命题常量}(proposition constant)
-\index{proposition constant\kong 命题常量}
+命题也有\textbf{命题常量}(propositional constant)
+\index{propositional constant\kong 命题常量}
 与\textbf{命题变量}(propositional variable)之分。
 \index{propositional variable\kong 命题变量}
 前者为某个确定的命题，而后者是一个抽象的符号，
@@ -443,6 +443,7 @@ $$2(x+2y)\,\,\,\,,\,\,\,\,2x+4y$$
 事实上暴力验证可以交给计算机来完成。
 
 \begin{definition}[命题公式的分类]
+\label{命题公式的分类}
 对于含有$n$个$(n\geq0)$命题变量的命题公式$A=A(p_1,...,p_n)$，
 
 （1）称$A$为\textbf{重言式}(tautology)
@@ -2099,6 +2100,7 @@ $$\exists x,[F(x)\wedge(\forall y,(F(y)\rightarrow(y=x)))]$$
 
 \begin{example}
 将命题“只有两只恐龙”翻译成符号语言。
+\label{只有两只恐龙}
 \end{example}
 
 \begin{proof}[Solution]
@@ -2114,7 +2116,7 @@ $$\exists x,\exists y,
 符号语言有时并不比自然语言简洁明了。在以后的学习中，
 我们在表意明确的前提下会采用尽量简洁的表述方式。
 
-\section{一阶逻辑的基本语言（正在更新）}
+\section{一阶逻辑的基本语言}
 
 本节开始，我们正式引入\textbf{一阶逻辑}(first order logic)
 的概念，并且研究相应的演算、推理理论。
@@ -2167,7 +2169,10 @@ $$F(f(\text{甲}),\text{乙})$$
 
 \begin{definition}[逻辑符号与非逻辑符号]$\,$
 
-个体常量符号、函数符号、谓词符号统称\textbf{非逻辑符号}；
+个体常量符号、函数符号、谓词符号统称
+\textbf{非逻辑符号}，或者\textbf{非逻辑常量}
+（nonlogical constant）；
+\index{nonlogical constant\kong 非逻辑常量}
 
 个体变量符号、量词符号、命题连接词、
 括号和逗号统称\textbf{逻辑符号}。
@@ -2193,7 +2198,8 @@ $L$生成的一阶语言$\mathcal{L}$的\textbf{字母表}
 使之涵盖谓词、量词，进而表达更复杂的逻辑关系。
 
 \begin{definition}[项]对于一组非逻辑符号$L$，
-定义$\mathcal{L}$当中的\textbf{项}(term)如下：
+定义$\mathcal{L}$当中的\textbf{项}(term)
+\index{term\kong （一阶逻辑公式的）项}如下：
 
 （1）$\mathcal{L}$中的个体常量符号，
 以及所有的个体变量符号都是$\mathcal{L}$的项；
@@ -2210,7 +2216,8 @@ $$\varphi(t_1,...,t_n)$$
 一样，这里也是归纳定义。“项”这个概念可以粗俗地认为是个体变量的推广。
 
 \begin{definition}[原子公式]对于非逻辑符号组$L$，
-$\mathcal{L}$中的\textbf{原子公式}是指：
+$\mathcal{L}$中的\textbf{原子公式}（atomic formula）
+\index{atomic formula\kong 原子公式}是指：
 形如$F(t_1,...,t_n)$的符号串，其中$F$是$L$中的$n$元谓词符号，
 $t_1,...,t_n$是$\mathcal{L}$中的$n$个项。
 \end{definition}
@@ -2221,7 +2228,8 @@ $t_1,...,t_n$是$\mathcal{L}$中的$n$个项。
 
 \begin{definition}[合成公式]
 对于由$L$生成的一阶语言$\mathcal{L}$，$\mathcal{L}$
-中的\textbf{合成公式}是指如下符号串：
+中的\textbf{合成公式}（well-formed formula）
+\index{well-formed formula\kong （一阶逻辑）合成公式}是指如下符号串：
 
 （1）（起始步）原子公式都是合成公式；
 
@@ -2296,7 +2304,8 @@ $$\forall x, x^2+1>y$$
 则对于公式$Qx,A$（其中$Q$是一个量词，
 可以是$\forall$、$\exists$或者其它），
 称$x$为量词$Q$的\textbf{指导变元}，
-$A$为量词$Q$在公式$Qx,A$中的\textbf{辖域}。
+$A$为量词$Q$在公式$Qx,A$中的\textbf{辖域}（scope）。
+\index{scope\kong （量词的）辖域}
 \end{definition}
 
 粗俗地说，“指导变元”就是被量词量化过的个体变量；
@@ -2328,9 +2337,11 @@ $$G(y,z,w)$$
 
 （1）如果$x$位于某个量词的辖域之中，
 且是该量词的指导变元，
-则称$x$在公式$A$当中\textbf{约束出现}；
+则称$x$在公式$A$当中\textbf{约束出现}（bound occurrence）；
+\index{bound occurrence\kong （个体变量）约束出现}
 
-（2）否则，称$x$在公式$A$中\textbf{自由出现}。
+（2）否则，称$x$在公式$A$中\textbf{自由出现}（free occurrence）。
+\index{free occurrence\kong （个体变量）自由出现}
 \label{自由出现与约束出现的定义}
 \end{definition}
 
@@ -2399,7 +2410,9 @@ $\forall x,F(x,y)$含有自由出现的$y$，从而不是闭式。\vs
 
 \begin{definition}[合成公式的赋值]
 对于合成公式$A$，对$A$的一个\textbf{赋值}
-（或者称为\textbf{解释}）是指以下三部分：
+（或者称为\textbf{解释}interpretation）
+\index{interpretation\kong （一阶逻辑公式的）解释}
+是指以下三部分：
 
 （1）给公式中的每个函数符号、谓词符号指定一个相应的函数、谓词；
 
@@ -2412,9 +2425,166 @@ $\forall x,F(x,y)$含有自由出现的$y$，从而不是闭式。\vs
 （当然一些特殊的合成公式本身就是命题，无需赋值），
 对它赋值之后即得到命题，进而可以谈论真假。
 
+\begin{example}考虑公式
+$$[\forall x,F(g(x,a),x)]\rightarrow F(x,y)$$
+其中$F$为二元谓词，$g$为二元函数，$x,y,a$为个体变量。
+我们考虑此公式的如下解释：
 
+（1）令二元函数$g(x,y)=xy$（通常的乘法），
+二元谓词$F(x,y)$表示“$x=y$”；
 
+（2）“$F(g(x,a),x)$”当中的“$x$”在量词
+“$\forall$”的辖域中当中约束出现，令它的论域为全体整数；
 
+（3）“$F(x,y)$”当中的“$x$”为自由出现，取它的值为1；
+并且令$y,a$的取值分别为4、0。
+\end{example}
+
+\begin{proof}[Solution]
+如此赋值后，得到命题
+$$[\forall x,(x\times0=x)]\rightarrow(1=4)\eqno(*)$$
+其中$x$论域为全体整数。
+
+注意“$\rightarrow$”左边的“$\forall x,(x\times0=x)$”
+是假命题，从而由蕴含连接词的规则可知命题(*)是真命题。
+\end{proof}
+
+读者可以自行给出此公式的其它解释，并判断所得命题的真假。
+例如，如果我们将函数符号$g$解释为$g(x,y)=x+y$
+（通常的加法），而其它同上，则得到的命题是假命题。
+
+\begin{example}考虑公式
+$$\exists x,2x+1=0$$
+的以下两个不同的解释：
+
+（1）$x$的论域为全体整数；
+
+（2）$x$的论域为全体有理数。
+\end{example}
+
+（注意这个公式当中只有一个约束出现的个体变量$x$需要被解释）
+
+\begin{proof}[Solution]
+很明显，由（1）所得的命题“存在整数$x$，使得$2x+1=0$”是假命题；
+而由（2）所得的命题“存在有理数$x$，使得$2x+1=0$是真命题”。
+\end{proof}
+
+类似于命题公式的分类（重言式、矛盾式、可满足式），
+对一阶逻辑的合成公式也可以谈论类似的概念：
+
+\begin{definition}[合成公式的分类]
+设$A$是一个合成公式，如果$A$的任何解释都为真命题，则称
+$A$为\textbf{逻辑有效式}，或者\textbf{永真式}；
+若$A$的任何解释都为假命题，则称$A$为\textbf{矛盾式}；
+如果存在$A$的某个解释使之为真命题，则称$A$为\textbf{可满足式}。
+\end{definition}
+
+与命题公式的情形（见定义\ref{命题公式的分类}）完全类似。
+判断命题公式为何种类型，我们可以用万能的真值表法，
+毕竟命题公式的赋值只有有限种情形；然而合成公式的赋值就复杂多了，
+一般来说有无限种可能的赋值。因此判断合成公式的类型
+相比之下就困难多了，我们寄希望于一些演算法则。
+
+幸运的是，我们可以通过永真（矛盾）的命题公式，
+来得到一些永真（矛盾）的合成公式。
+
+\begin{definition}[命题公式的代换]
+设$A$是含有$n$个命题变量$p_1,...,p_n$的命题公式，
+设$A_1,...,A_n$是$n$个合成公式，则把符号串$A$当中的每个$p_i$
+都替换成符号串$(A_i)$（$1\leq i\leq n$）之后，
+所得的符号串为合成公式，该公式称为命题公式$A$的一个代换。
+\end{definition}
+
+追求极致的读者应该思考：
+为什么经过如此代换之后得到的符号串是合成公式？
+这需要依照合成公式与命题公式的定义进行验证，证明过程比较麻烦。
+
+\begin{example}考虑命题公式
+$$(p\vee q)\rightarrow r$$
+我们将命题变量$p,q,r$分别用合成公式
+$$\exists x,F(x,y)$$
+$$\forall y,[F(f(x,y),z)\wedge\exists z,G(z)]$$
+$$F(g(y),z)$$
+来代换（其中$x,y,z$为命题变量，$F,G$为谓词符号，$f,g$为函数符号），
+试写出代换后的符号串。
+\end{example}
+
+\begin{proof}[Solution]
+如此代换后的符号串为
+$$(\exists x,F(x,y))\vee (\forall y,[F(f(x,y),z)
+\wedge\exists z,G(z)]))\rightarrow F(g(y),z)$$
+
+容易看出它是合成公式。
+\end{proof}
+
+我们有如下基本结果：
+
+\begin{thm}重言式的任何代换都为永真式，
+矛盾式的任何代换都为矛盾式。
+\end{thm}
+
+\begin{proof}
+这是显然的，容易证明。从略，留给读者思考。
+\end{proof}
+
+\begin{example}命题公式$p\vee(\neg p)$是重言式，
+将命题变量$p$代换为$F(x,y)$（其中$F$为二元谓词，$x,y$为个体变量），
+则得到合成公式
+$$F(x,y)\vee(\neg F(x,y))$$
+此公式为永真式。
+\end{example}
+
+例如，将$F(x,y)$解释为“$x>y$”，$x,y$分别解释为2、3，则得到命题
+“$2>3$或者$\neg(2>3)$”，这是真命题。
+也可以把$F(x,y)$解释成“$x$是$y$的父亲”，并且
+把$x,y$分别解释成李白、杜甫，则得到命题“李白是杜甫的父亲，
+或者李白不是杜甫的父亲”，这也是真命题……
+
+\begin{example}判断下列合成公式的类型：
+
+（1）$\forall x,(F(x,y)\rightarrow G(y))$
+
+（2）$(\forall x,F(x))\rightarrow
+[(\exists x,\exists y,G(x,y))\rightarrow(\forall x,F(x))]$
+
+（3）$\neg[(\forall x,F(x))\rightarrow
+(\exists y,G(y))]\wedge(\exists y,G(y))$
+\end{example}
+
+\begin{proof}[Solution]
+对于（1），我们考虑此公式的解释：
+$x$的论域为全体实数，$y=0$，$F(x,y)$为“$x>y$”，$G(y)$为“$y$是奇数”——
+则在如此解释下，得到命题“对任何实数$x$，如果$x>0$，那么$0$是奇数”，
+这是一个假命题。因此该合成公式不是永真式。但另一方面，
+考虑此公式的另一个解释：把$G(y)$解释为“$y$”是偶数，其余同之前，则
+得到命题“对任何实数$x$，如果$x>0$，那么$0$是偶数”，这是真命题。
+从而原公式为可满足式。因此，原公式为不是永真式的可满足式。\vs
+
+注意到（2）是命题公式$p\rightarrow(q\rightarrow p)$的一个代换：
+将$p,q$分别换成$\forall x,F(x)$、$\exists x,\exists y,G(x,y)$.
+而命题公式$p\rightarrow(q\rightarrow p)$是重言式
+（读者自行用真值表或者等值演算来验证），从而代换后
+的公式（2）为永真式。\vs
+
+注意到（3）是命题公式$\neg(p\rightarrow q)\wedge q$的一个代换，
+而命题公式$\neg(p\rightarrow q)\wedge q$是矛盾式，
+因此代换后得到的（3）也是矛盾式。
+\end{proof}
+
+但是要注意，可满足式的代换未必是可满足式（也可能是矛盾式）。
+
+\begin{example}考虑命题公式$p\vee q$，这个命题公式
+是可满足式。我们随便找两个合成公式$A,B$，使得
+它们都是矛盾式。那么用$A,B$分别代换$p,q$，得到的合成公式
+$$A\vee B$$
+是矛盾式，并不是可满足式。
+\end{example}
+
+\begin{proof}
+很明显，无论怎么给$A,B$解释，由于$A,B$为矛盾式，
+从而所得的命题都是假命题，从而$A\vee B$也为假。
+这表明$A\vee B$是矛盾式。
+\end{proof}
 
 
 
@@ -2835,13 +3005,13 @@ $A$作为$A$-模是有限长的当且仅当$A$是Krull维数为0的诺特环。
 \begin{prob}判断下列命题的真假，
 其中出现的个体词的论域为全体整数：
 
-（1）$\forall x,\forall y,\exists z(x-y=z)$
+（1）$\forall x,\forall y,\exists z,(x-y=z)$
 
-（2）$\forall x,\exists z,\forall y(x-y=z)$
+（2）$\forall x,\exists z,\forall y,(x-y=z)$
 
-（3）$\forall x,\exists y\,(xy=1)$
+（3）$\forall x,\exists y,(xy=1)$
 
-（4）$\exists x,\forall y,\forall z(x+y=z)$
+（4）$\exists x,\forall y,\forall z,(x+y=z)$
 \end{prob}\vs
 
 \begin{prob}[分析学基本原理]
@@ -2858,7 +3028,37 @@ $A$作为$A$-模是有限长的当且仅当$A$是Krull维数为0的诺特环。
 \begin{prob}考虑例子\ref{一个简单的一阶语言系统}当中的三个公式，
 试指出每个量词的指导变元、辖域，
 并判断每个个体变量是自由出现还是约束出现。
+\end{prob}\vs
+
+\begin{prob}考虑例子\ref{只有两只恐龙}
+当中的合成公式
+$$\exists x,\exists y,
+[(x\neq y)\wedge D(x)\wedge D(y)\wedge
+(\forall z,(D(z)\rightarrow((z=x)\vee(z=y))))]$$
+试指出其中每个量词的指导变元、辖域，
+以及每个个体变量是自由出现还是约束出现。
+\end{prob}\vs
+
+\begin{prob}是给出以下每个公式一个解释，使之成为真命题：
+
+（1）$\forall x,(F(x)\vee G(x))$
+
+（2）$\exists x,\forall y,F(x,y)$
+
+（3）$\forall x,\exists y,F(x,y,z)$
+
+（4）$\exists x,[F(x)\wedge\forall y,(G(y)\wedge H(x,y))]$
+\end{prob}\vs
+
+\begin{prob}试证明以下公式既不是永真式，也不是矛盾式：
+
+（1）$\forall y,[F(y)\rightarrow\exists x,(G(x)\wedge H(x,y))]$
+
+（2）$\forall x,\forall y,[(F(x)\wedge G(y))\rightarrow H(x,y)]$
 \end{prob}
+
+（提示：只需要对每一个公式，给出一个使之为真命题的赋值，
+再给出一个使之为假命题的赋值）\vs
 
 
 
