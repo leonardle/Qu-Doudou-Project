@@ -2,10 +2,13 @@
 \addcontentsline{toc}{chapter}{前言}
 
 近代数学的一个特点是公理化、结构化。
-代表近代数学的布尔巴基(Bourbaki)学派认为“数学是研究抽象结构的学科”，
-这与恩格斯的观点“数学是关于现实世界数量关系和空间形式的科学”略有出入。
-本讲义力图介绍近代数学中的四大基本结构：序结构、代数结构、拓扑结构、测度结构，
-从而勾勒出近代数学基本框架，满足那些“想要多学一些数学”的爱好者们的基本需求，
+代表近代数学的布尔巴基(Bourbaki)
+\index{Bourbaki\kong 布尔巴基（学派）}
+学派认为“数学是研究抽象结构的学科”。
+本讲义力图介绍近代数学中的四大基本结构：
+序结构、代数结构、拓扑结构、测度结构，
+从而勾勒出近代数学基本框架，
+满足那些“想要多学一些数学”的爱好者们的基本需求，
 并为其进一步学习近代数学奠定基础。
 
 虽说声称是“零基础入门高等数学”，
@@ -13,25 +16,34 @@
 还是要假定读者对一些基本的数学对象有直观的了解，
 包括：实数的加减乘除运算、实数大小的比较，仅此而已。
 
-事实上，近代数学基础完整的构建顺序大概是：命题逻辑$\rightarrow$
-一阶谓词逻辑$\rightarrow$公理集合论$\rightarrow$自然数公理系统
+事实上，近代数学基础完整的构建顺序大概是：
+命题逻辑$\rightarrow$
+一阶谓词逻辑$\rightarrow$公理集合论
+$\rightarrow$自然数公理系统
 $\rightarrow$实数理论。什么是自然数中的“0”，什么是“1”，
 “自然数”是在集合论的框架下定义出来的，并不是“本来就有的”；
 而自然数的加法运算也是定义出来的，
 不再是初等数学那样子来源于日常生活经验，理所当然的。
-这也是为什么罗素用了300多页才得到了自然数“1”的定义，这才是真正的“白手起家”。
+这也是为什么罗素用了300多页才得到了自然数“1”的定义，
+这才是真正的“白手起家”。
 有了自然数，之后再定义整数，
 通过对整数环分式化来构造有理数，
 再对有理数完备化来构造实数。
 
-而本讲义跳过这个漫长的构建过程（但会在正文各处穿插地简要提一下），
-直接假定读者知道什么是实数，以及实数的加减乘除、大小比较。
+而本讲义跳过这个漫长的构建过程
+（但会在正文各处穿插地简要提一下），
+直接假定读者知道什么是实数，
+以及实数的加减乘除、大小比较。
 这样做的原因有两点，其一是避免讲义篇幅过长，
-过分纠结于数学基础是枯燥乏味的，毕竟这个讲义不是专门的“数学基础”教材。
-其二是为我们要介绍的抽象结构提供具体例子，比如讲到“偏序集”这个结构时，
+过分纠结于数学基础是枯燥乏味的，
+毕竟这个讲义不是专门的“数学基础”教材。
+其二是为我们要介绍的抽象结构提供具体例子，
+比如讲到“偏序集”这个结构时，
 实数配以通常的比较大小就是一个例子；
 讲到“群”结构时，实数配以加法运算就是一个最基本的例子。
-离开具体例子空谈抽象概念并不利于对数学概念的理解（当然格罗滕迪克Grothendieck是例外）。
+离开具体例子空谈抽象概念并不利于对数学概念的理解
+（当然格罗滕迪克Grothendieck是例外）。
+\index{Grothendieck\kong 格罗滕迪克}
 
 由于这个讲义是笔者写着玩的，
 且笔者水平有限，胡说八道之处在所难免。
@@ -39,73 +51,93 @@ $\rightarrow$实数理论。什么是自然数中的“0”，什么是“1”�
 另外由于匆忙成稿，笔误、语法错误应该也挺多的，
 恳请批评指正。
 
-最后，关于自然数的公理化构造，笔者恶搞《圣经：创世纪》中的一段，仅供娱乐，见下页。
+\section*{关于数学学习：给初学者}
+
+如果你是初学者，请忘掉中学所学；
+
+如果之前接触过“高数”，也请忘掉。
+
+中学数学讲究“知识点”，重在“刷题、熟练”，
+强调解题技巧——这些东西在本讲义中不再重要。
+
+近代数学不再是“一个个的知识点”，
+而是知识体系的摩天大厦。
+学习近代数学，不仅仅是能记住多少公式定理、
+能解决多少问题（当然解决问题很重要，
+比如微积分诞生之时就威力无比所向披靡），
+更多的是将学到的知识有条理地组织起来，
+形成理论体系。
+
+于是，概念、定理证明就格外重要。
+话不多说，建议初学者学习本讲义时，
+“不动笔墨不读书”，“抄书三遍，其义自见”。
+尤其是读到\textbf{定义}、\textbf{定理的证明}时，
+有时只用眼睛看是没有效果的，这时候请反复诵读、抄写
+（看似笨的办法其实是捷径），直到能脱稿复述为止；
+等功底到了一定程度，可以先用眼睛看定理的证明过程，
+多看几遍明白大致思路，合上书，在纸上复述、默写；
+最高境界是，读完定理所陈述的内容后，
+合上书，不去看定理的证明过程，
+自己思考、补全证明（许多大数学家的境界如此）。
+学习近代数学某种意义下更像学外语，贵在反复、坚持。
+抄写、默写、背诵、复述是初学者的常态。
+没有扎实的基础，何谈今后灵活运用。\vs
+
+第一章数理逻辑比较简单，
+仅仅是将我们众所周知的推理规则
+用符号语言重新梳理了一遍，并没有涉及深入的内容。
+
+从第二章集合论开始，“抄书”就格外重要了。
+有一些概念可能对初学者来说过于抽象，不知所云
+（尤其是第四章代数结构，这将是重灾区）；
+或者是一些本来我们都明白、觉得理所当然的概念，
+被叙述得面目全非——这时候请相信笔者，
+先反复抄书强迫自己记住，日后再反复体会。
+这就像小时候背过的古诗，
+等到长大后的不经意间才突然明白诗中意境。
+
+在第五章实数的完备性，
+我们将第一次见到稍具规模的理论体系——
+若干个证明较复杂的定理被组织成一套理论。
+在此，“抄书大法”将大有可为。\vs
+
+学习数学贵在坚持，毅力比智商更重要。
+只要能坚持住，本讲义的全部内容人人都能学会。
+
+苍蝇飞行灵敏、反应迅捷，
+但是永远无法像苍鹰般翱翔天空；
+学数学也不在于反应快、小聪明（可以搞金融呀），
+毕竟我们的征途是星辰大海，
+我们面对的是摩天大厦。
+
+\section*{本讲义各章内容安排}
+
+（待补）
+
 \newpage
 
-\textbf{致谢}
+\section*{致谢}
 
 感谢笔者母校中国科学技术大学数学系的培养
 
 感谢豆瓣小组提供平台
 
 感谢一起编纂此讲义的小伙伴们
-
 \vspp
-\textbf{贡献者（豆瓣昵称，按拼音字母顺序排序）}
 
-曲豆豆，王有为，在云上，子坚
+\subsection*{贡献者（豆瓣昵称，按拼音字母顺序排序）}
 
-\begin{centering}
-\newcounter{density}
-\setcounter{density}{0}
-\begin{tikzpicture}
-    \def\couleur{green}
-    \path[coordinate] (0,0)  coordinate(A)
-                ++( 144:6cm) coordinate(B)
-                ++(72:6cm) coordinate(C)
-                ++(0:6cm) coordinate(D)
-                ++(-72:6cm) coordinate(E)
-                                ;
-    \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- (E) --  cycle;
-    \foreach \x in {1,...,120}{%
-        \pgfmathsetcounter{density}{\thedensity+5}
-        \setcounter{density}{\thedensity}
-        \path[coordinate] coordinate(X) at (A){};
-        \path[coordinate] (A) -- (B) coordinate[pos=.05](A)
-                            -- (C) coordinate[pos=.05](B)
-                            -- (D) coordinate[pos=.05](C)
-                            -- (E) coordinate[pos=.05](D)
-                             -- (X) coordinate[pos=.05](E);
-        \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) --(E)  -- cycle;
-    }
-\end{tikzpicture}
+曲豆豆，王有为，在云上，子坚，
+Pika*Pie
 
-\end{centering}
-\begin{centering}
-
-\tikzstyle{level 1}=[sibling angle=120]
-\tikzstyle{level 2}=[sibling angle=60]
-\tikzstyle{level 3}=[sibling angle=30]
-\tikzstyle{every node}=[fill]
-\tikzstyle{edge from parent}=[snake=expanding waves,segment length=1mm,
-                              segment angle=10,draw]
-\begin{tikzpicture}[grow cyclic,shape=circle,very thick,level distance=13mm,
-                    cap=round]
-\node {} child [color=\A] foreach \A in {red,green,blue}
-    { node {} child [color=\A!50!\B] foreach \B in {red,green,blue}
-        { node {} child [color=\A!50!\B!50!\C] foreach \C in {black,gray,white}
-            { node {} }
-        }
-    };
-\end{tikzpicture}
-\end{centering}
+（待补）
 
 \newpage
 
 \begin{centering}
-\begin{Large}
+\begin{Huge}
 \textbf{《圣经：创世纪》节选}
-\end{Large}\vsp
+\end{Huge}\vsp
 \large
 
 起初，神创造逻辑。
@@ -211,35 +243,6 @@ $\rightarrow$实数理论。什么是自然数中的“0”，什么是“1”�
 很快，后继树下生成了所有正整数。。。
 
 \end{centering}
-\vspp
-
-\begin{center}
-\begin{tikzpicture}[scale=0.8, line join=bevel]
-    \pgfmathsetmacro{\a}{2.5}
-    \pgfmathsetmacro{\b}{0.9}
-
-    \tikzset{%
-      apply style/.code     = {\tikzset{#1}},
-      triangle_edges/.style = {thick,draw=red!70}
-    }
-    \foreach \theta/\facestyle in {%
-        0/{triangle_edges, fill = yellow!40},
-      120/{triangle_edges, fill = gray!25},
-      240/{triangle_edges, fill = gray!90}%
-    }{
-      \begin{scope}[rotate=\theta]
-        \draw[apply style/.expand once=\facestyle]
-          ({-sqrt(3)/2*\a},{-0.5*\a})                     --
-          ++(-\b,0)                                       --
-            ({0.5*\b},{\a+3*sqrt(3)/2*\b})                -- % higher point	
-            ({sqrt(3)/2*\a+2.5*\b},{-.5*\a-sqrt(3)/2*\b}) -- % rightmost point
-          ++({-.5*\b},-{sqrt(3)/2*\b})                    -- % lower point
-            ({0.5*\b},{\a+sqrt(3)/2*\b})                  --
-          cycle;
-        \end{scope}
-      }	
-\end{tikzpicture}
-\end{center}
 
 
 
