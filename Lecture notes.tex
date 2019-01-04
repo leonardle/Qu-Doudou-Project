@@ -2,8 +2,7 @@
 % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
 
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
-\usepackage{graphicx} % Required for including pictures
-\usepackage{wrapfig} % Allows in-line images
+\usepackage{graphicx,wrapfig} % Required for including pictures
 \usepackage{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Required for accented characters
 \usepackage{amscd,amsmath}
@@ -11,17 +10,18 @@
 \usepackage{latexsym,amsbsy,bbold, fullpage}
 \usepackage{amssymb,amsthm,amsfonts}
 \usepackage{pdfsync,yfonts}
-\usepackage{tkz-graph}
+\usepackage{tkz-graph,tikz-cd}
 \usepackage[all,pdf]{xy}
-\usepackage{ctex}  %支持中文
+\usepackage{ctex}  
 \usepackage{titlesec}
-\usepackage{color}
-\usepackage{xcolor}
+\usepackage{color,xcolor,tcolorbox}
 \usepackage{framed}
-\usepackage{tcolorbox}
-\usepackage{hyperref}
+\usepackage{hyperref,url}
 \usepackage{makeidx}
-\usepackage{tikz-cd}
+
+\def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V \do\W\do\X\do\Y\do\Z\do\[\do\\\do\]\do\^\do\_\do\`\do\a\do\b \do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n \do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\, 
+\do\?\do\'\do+\do\=\do\#}
+
 \usetikzlibrary{matrix, calc, arrows}
 \usetikzlibrary{patterns,trees,snakes}
 
@@ -84,14 +84,13 @@
 %%%%%%%%%%%%%%定理环境%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtheorem{thm}{定理}[section]
-\newtheorem{lemma}{引理}[section]
-\newtheorem{prop}{性质}[section]
-\newtheorem{definition}{定义}[section]
-\newtheorem{example}{例子}[section]
-\newtheorem{rem}{注记}[section]
-\newtheorem{cor}{推论}[section]
-\newtheorem{claim}{断言}[section]
-\newtheorem{intro}{导引}[section]
+\newtheorem{lemma}[thm]{引理}
+\newtheorem{prop}[thm]{性质}
+\newtheorem{definition}[thm]{定义}
+\newtheorem{example}[thm]{例子}
+\newtheorem{rem}[thm]{注记}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{claim}[thm]{断言}
 \newtheorem{prob}{习题}[section]
 
 \DeclareMathOperator{\coker}{coker}
@@ -154,7 +153,7 @@
 \\{\textit{豆瓣研究生小组\,\,\,\,\,荣誉出品}}} % Institution
 
 \date{\today\\
-第03-1.5稿}
+第03-1.6稿}
 
 %----------------------------------------------------------------------------------------
 \begin{document}
